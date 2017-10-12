@@ -65,3 +65,8 @@ version (e.g. 1.x.y) is released by the following release process:
 * **3. Tag a new release**
 
   Tag a new version on [GitHub](https://github.com/php-earth/alpine/releases).
+
+* **4. Rebuild PHP.earth Docker images**
+
+  With each change rebuild also [PHP.earth Docker images](https://github.com/php-earth/docker-php)
+  respectively.
