@@ -1,0 +1,9 @@
+/repo/*
+!/repo
+!/repo/.gitkeep
+/build/main/*/pkg
+/build/main/*/src
+/build/main/*/tmp
+/.docker/abuild/home/packager/.abuild/phpearth.rsa.priv
+/log/*
+!/log/.gitkeep
