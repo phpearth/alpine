@@ -4,7 +4,7 @@ pkgname=php7.0
 _pkgreal=php
 _phpver=7.0
 pkgver=7.0.24
-pkgrel=2
+pkgrel=3
 _apiver=20151012
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -77,6 +77,7 @@ source="http://php.net/distributions/$_pkgreal-$pkgver.tar.xz
   iconv.c.patch
   install-pear.patch
   Makefile.frag.patch
+  pear.patch
   php-fpm.initd
   php-fpm.logrotate
   php7-module.conf
@@ -614,6 +615,7 @@ d93d3fc015580cf5f75c6cbca4cd980e054b61e1068495da81a7e61f1af2c9ae14f09964c04928ad
 724a77f756b24dc199f5932827f28023c23b2f8487b6f31a53527b628a53c77a5a3d6c40a9b8b0fb35fd585a4b5ba16212c7f4249bc702101f089ae3c0c027e3  iconv.c.patch
 f1177cbf6b1f44402f421c3d317aab1a2a40d0b1209c11519c1158df337c8945f3a313d689c939768584f3e4edbe52e8bd6103fb6777462326a9d94e8ab1f505  install-pear.patch
 f31a307bbd0318120b787f780b70fd67a4e866c38d551ee290b07d6222d7cdb32af9bfbef2ce39e2c39eaaed3bdb6d9b5e746f952cb626fd2f7864ad67fa73f6  Makefile.frag.patch
+8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
 f20c5dfa88bcbca2adf10a792ea420edb26c3d7e3428b4e49f07a6e5b9ae52a8270b6087b46899036dc86ba1962c92b535be56f31a6a9c341f73cded67698cab  php-fpm.initd
 3a8fa61867526355ba0278b83f01a104a591c46dba4b96d600f5b66bebee30e6aa18b579dbee371f87166a2c9dff3ba7cc5faf2f836dfc91fa5a94970e535fec  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf
