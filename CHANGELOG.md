@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2017-01-01
 
+* PECL extension MongoDB 1.3.1
 * ...
 
 ## [0.0.1] 2017-10-13
