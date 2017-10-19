@@ -24,6 +24,7 @@ php7.0-redis
 php7.0-sodium
 php7.0-swoole
 php7.0-xdebug
+php7.0-yaml
 "
 
 packages_71="
@@ -37,6 +38,7 @@ php7.1-redis
 php7.1-sodium
 php7.1-swoole
 php7.1-xdebug
+php7.1-yaml
 "
 
 packages_72="
@@ -49,6 +51,7 @@ php7.2-mongodb
 php7.2-phpunit
 php7.2-redis
 php7.2-swoole
+php7.2-yaml
 "
 
 # To build PHP Pecl extensions and some packages, we'll need some deps from the

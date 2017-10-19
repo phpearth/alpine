@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2017-01-01
 
+* New PECL extension: YAML
 * PECL extension MongoDB 1.3.1
 * ...
 
