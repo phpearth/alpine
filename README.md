@@ -65,7 +65,7 @@ echo "https://repos.php.earth/alpine" >> /etc/apk/repositories
 
 Current recommended branch of PHP is `7.1`.
 
-## Contributing and License
+## Contributing and license
 
 Contributions are most welcome. Just fork and send pull request or open an issue.
 This repository is licensed under the

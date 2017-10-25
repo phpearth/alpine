@@ -1,11 +1,10 @@
 --- a/configure
 +++ b/configure
-@@ -40417,8 +40417,15 @@ else
+@@ -40417,8 +40417,14 @@
  /* end confdefs.h.  */
  
  #include <$PHP_ICONV_H_PATH>
 +#include <stdio.h>
-+
  int main() {
 -  printf("%d", _libiconv_version);
 +  char *version = "unknown";
