@@ -3,6 +3,10 @@
 This repository includes the latest PHP versions and packages for the elegant PHP
 development experience on [Alpine Linux](https://alpinelinux.org/).
 
+<div align="center">
+  <img src="https://cdn.rawgit.com/php-earth/logo/master/svg/indigo.svg" width="300">
+</div>
+
 ## Quick usage
 
 On Alpine Linux add a PHP.earth repository and make it trusted:
