@@ -12,7 +12,7 @@ build: ## Build necessary image for building packages
 
 build-packages: ## Usage: make build-package [p="7.0|7.1|7.2|all|<package-name1> <package-name2> ..."]
 	make build
-	@docker-compose -f .docker/docker-compose.yaml run --rm abuild build-packages "$(p)" 2 >&1 | tee ./log/$(TIME).log
+	@docker-compose -f .docker/docker-compose.yaml run --rm abuild build-packages "$(p)"
 
 generate-index: ## Generate index file APKINDEX.tar.gz usage: make generate-index
 	make build
