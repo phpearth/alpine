@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file. This projec
 
 * ...
 
+## [0.0.4] 2017-10-29
+
+* Use custom compiler optimization flags based on Docker PHP images
+
 ## [0.0.3] 2017-10-26
 
 * PECL Libsodium 2.0.10

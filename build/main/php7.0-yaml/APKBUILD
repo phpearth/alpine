@@ -1,7 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=2.0.2
-pkgrel=0
+pkgrel=1
 _phpver=7.0
 _php=php$_phpver
 _pkgreal=yaml
@@ -26,7 +26,11 @@ build() {
 
   phpize
 
-  EXTENSION_DIR=/usr/lib/php/$_phpver/modules ./configure \
+  EXTENSION_DIR=/usr/lib/php/$_phpver/modules \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
     --prefix=/usr \
     --with-php-config=/usr/bin/php-config
 

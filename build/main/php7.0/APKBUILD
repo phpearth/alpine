@@ -4,7 +4,7 @@ pkgname=php7.0
 _pkgreal=php
 _phpver=7.0
 pkgver=7.0.25
-pkgrel=0
+pkgrel=1
 _apiver=20151012
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -203,7 +203,11 @@ _build() {
 
   local jobs=$(($(nproc)+1))
 
-  EXTENSION_DIR=$_extension_dir ./configure \
+  EXTENSION_DIR=$_extension_dir \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
     --build=$CBUILD \
     --host=$CHOST \
     --prefix=/usr \

@@ -5,7 +5,7 @@ _pkgreal=php
 _phpver=7.1
 pkgver=7.1.11
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=101
 _apiver=20160303
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -205,7 +205,11 @@ _build() {
 
   local jobs=$(($(nproc)+1))
 
-  EXTENSION_DIR=$_extension_dir ./configure \
+  EXTENSION_DIR=$_extension_dir \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
     --build=$CBUILD \
     --host=$CHOST \
     --prefix=/usr \
