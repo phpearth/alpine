@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This projec
 ## [UNREALEASED] 2017-01-01
 
 * Swoole 1.9.22
+* PHP 7.2.0RC6
 * ...
 
 ## [0.0.5] 2017-10-30
