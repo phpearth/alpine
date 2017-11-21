@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file. This projec
 * Swoole 1.9.22
 * PHP 7.2.0RC6
 * PHPUnit 6.4.4
+* MongoDB 1.3.3
+* Memcached 3.0.4
 * ...
 
 ## [0.0.5] 2017-10-30
