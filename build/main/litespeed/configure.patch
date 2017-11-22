@@ -1,8 +1,6 @@
-diff --git a/configure b/configure
-index 79532c7..39c3203 100755
 --- a/configure
 +++ b/configure
-@@ -15907,7 +15907,7 @@ fi
+@@ -16012,7 +16012,7 @@
  
  
  if test "$OPENLSWS_BSSL" = no ; then
@@ -11,7 +9,7 @@ index 79532c7..39c3203 100755
          usedynossl=yes
          CPPFLAGS="$CPPFLAGS -I../../src -I../../include -I/usr/local/include -I/usr/local -I/usr -I/usr/pkg "
      else
-@@ -16392,7 +16392,7 @@ fi
+@@ -16497,7 +16497,7 @@
  
  
  
@@ -20,9 +18,3 @@ index 79532c7..39c3203 100755
  
  
  # Check whether --with-openssl was given.
-@@ -20970,5 +20970,3 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
-   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
- $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
- fi
--
--

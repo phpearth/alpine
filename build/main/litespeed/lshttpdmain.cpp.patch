@@ -1,5 +1,3 @@
-diff --git a/src/main/lshttpdmain.cpp b/src/main/lshttpdmain.cpp
-index 512206e..9abee97 100644
 --- a/src/main/lshttpdmain.cpp
 +++ b/src/main/lshttpdmain.cpp
 @@ -46,7 +46,6 @@

@@ -1,8 +1,6 @@
-diff --git a/src/thread/pthreadmutex.cpp b/src/thread/pthreadmutex.cpp
-index 639b410..140627d 100644
 --- a/src/thread/pthreadmutex.cpp
 +++ b/src/thread/pthreadmutex.cpp
-@@ -16,19 +16,5 @@
+@@ -16,19 +16,7 @@
  *    along with this program. If not, see http://www.gnu.org/licenses/.      *
  *****************************************************************************/
  #include "pthreadmutex.h"
@@ -19,6 +17,6 @@ index 639b410..140627d 100644
 -#else
  
  pthread_mutex_t PThreadMutex::s_proto = PTHREAD_MUTEX_INITIALIZER;
--
+ 
 -#endif
--
+ 
