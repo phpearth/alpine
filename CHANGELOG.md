@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2017-01-01
 
+* ...
+
+## [0.0.6] 2017-11-22
+
 * Swoole 1.9.22
 * PHP 7.2.0RC6
 * PHPUnit 6.4.4
@@ -14,7 +18,6 @@ All notable changes to this project will be documented in this file. This projec
 * OpenLiteSpeed 1.4.28
 * PHP 7.0.26
 * PHP 7.1.12
-* ...
 
 ## [0.0.5] 2017-10-30
 
