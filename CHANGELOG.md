@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 * MongoDB 1.3.3
 * Memcached 3.0.4
 * OpenLiteSpeed 1.4.28
+* PHP 7.0.26
 * ...
 
 ## [0.0.5] 2017-10-30
