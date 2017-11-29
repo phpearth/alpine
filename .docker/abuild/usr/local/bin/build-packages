@@ -11,6 +11,7 @@ composer
 gnu-libiconv
 litespeed
 phpunit
+pickle
 "
 
 packages_70="

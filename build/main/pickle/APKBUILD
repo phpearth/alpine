@@ -1,0 +1,17 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=0.4.0
+pkgrel=0
+pkgname=pickle
+pkgdesc="The PHP extension installer"
+url="https://github.com/FriendsOfPHP/pickle"
+arch="noarch"
+license="BSD 3 Clause"
+depends=""
+makedepends=""
+source="$pkgname-$pkgver.phar::https://github.com/FriendsOfPHP/pickle/releases/download/v$pkgver/pickle.phar"
+options="!check"
+
+package() {
+  install -m 0755 -D "$srcdir"/$pkgname-$pkgver.phar "$pkgdir"/usr/bin/$pkgname
+}

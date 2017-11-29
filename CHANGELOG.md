@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file. This projec
 * OpenLiteSpeed 1.4.28
 * PHP 7.0.26
 * PHP 7.1.12
+* New package Pickle
 
 ## [0.0.5] 2017-10-30
 
