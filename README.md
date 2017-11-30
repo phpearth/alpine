@@ -20,7 +20,7 @@ apk add --no-cache wget ca-certificates \
 PHP.earth packages are prefixed with `php7.0`, `php7.1`, and `php7.2`:
 
 ```bash
-apk search --no-cache php7.1*
+apk search --no-cache php7.2*
 ```
 
 ## Requirements
