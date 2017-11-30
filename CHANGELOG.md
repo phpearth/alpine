@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file. This projec
 ## [UNREALEASED] 2017-01-01
 
 * Swoole 1.9.23
+* Composer 1.5.3
+* New package Pickle
+* PHP 7.2.0
 * ...
 
 ## [0.0.6] 2017-11-22
@@ -19,7 +22,6 @@ All notable changes to this project will be documented in this file. This projec
 * OpenLiteSpeed 1.4.28
 * PHP 7.0.26
 * PHP 7.1.12
-* New package Pickle
 
 ## [0.0.5] 2017-10-30
 

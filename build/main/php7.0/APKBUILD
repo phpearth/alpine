@@ -4,7 +4,7 @@ pkgname=php7.0
 _pkgreal=php
 _phpver=7.0
 pkgver=7.0.26
-pkgrel=0
+pkgrel=1
 _apiver=20151012
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -76,6 +76,7 @@ source="http://php.net/distributions/$_pkgreal-$pkgver.tar.xz
   iconv.c.patch
   install-pear.patch
   pear.patch
+  pecl.sh
   php-fpm.initd
   php-fpm.logrotate
   php7-module.conf
@@ -493,7 +494,7 @@ pear() {
 
   # pecl needs xml extension and since we build it as shared, it must be
   # explicitly declared to be loaded.
-  sed -i 's/\$INCARG/& -d extension=xml.so/' usr/bin/pecl
+  install -D -m 755 "$srcdir"/pecl.sh "$pkgdir"/usr/bin/pecl
 
   mkdir -p "$subpkgdir"/usr/bin
   local file; for file in pecl pear peardev; do
@@ -614,8 +615,9 @@ f6ec638887034a940a1c6b0c4e99ffb5c80fe00b5014510a856f76ade99286497c8f21855b96c10e
 87170d6f920179b4844454b39560617aa5d5d64f35349c0d5f04b84038c5be29c24551052a3e323730041cb8ba4b55e28d3027b739a38b564906a592fa988c82  disabled-tests.list
 d93d3fc015580cf5f75c6cbca4cd980e054b61e1068495da81a7e61f1af2c9ae14f09964c04928ad338142de78e4844aed885b1ad1865282072999fb045c8ad7  fix-asm-constraints-in-aarch64-multiply-macro.patch
 724a77f756b24dc199f5932827f28023c23b2f8487b6f31a53527b628a53c77a5a3d6c40a9b8b0fb35fd585a4b5ba16212c7f4249bc702101f089ae3c0c027e3  iconv.c.patch
-f1177cbf6b1f44402f421c3d317aab1a2a40d0b1209c11519c1158df337c8945f3a313d689c939768584f3e4edbe52e8bd6103fb6777462326a9d94e8ab1f505  install-pear.patch
+1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
 8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
+e0a6763ca0e936c3e1079b5be88ab8955070f57c4a1104549f161f1fd7123be5b23df7a06af6323c3dd479661d78b267aac6f4316b9f72c41295e3a7f5bafed5  pecl.sh
 f20c5dfa88bcbca2adf10a792ea420edb26c3d7e3428b4e49f07a6e5b9ae52a8270b6087b46899036dc86ba1962c92b535be56f31a6a9c341f73cded67698cab  php-fpm.initd
 3a8fa61867526355ba0278b83f01a104a591c46dba4b96d600f5b66bebee30e6aa18b579dbee371f87166a2c9dff3ba7cc5faf2f836dfc91fa5a94970e535fec  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf

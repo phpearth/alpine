@@ -15,3 +15,4 @@ options="!check"
 package() {
   install -m 0755 -D "$srcdir"/$pkgname-$pkgver.phar "$pkgdir"/usr/bin/$pkgname
 }
+sha512sums="1d3522af8a1fa39336a101a3ee474583a5ed206599ad6be6768bcf1246a51b509f8da253ee2fa6676744f3a76e75059593c0bc9cf945ecfbcd35b7e3a0cd8451  pickle-0.4.0.phar"
