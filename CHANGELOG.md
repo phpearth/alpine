@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 * Composer 1.5.3
 * New package Pickle
 * PHP 7.2.0
+* PHPUnit 6.5.0
 * ...
 
 ## [0.0.6] 2017-11-22
