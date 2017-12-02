@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. This projec
 ## [UNREALEASED] 2017-01-01
 
 * Swoole 1.9.23
-* Composer 1.5.4
+* Composer 1.5.5
 * New package Pickle
 * PHP 7.2.0
 * PHPUnit 6.5.0
