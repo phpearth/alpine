@@ -1,0 +1,32 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+# Customized latest version from Git master branch
+pkgver=0.4.1
+pkgrel=0
+pkgname=pickle
+_phpver=7.2
+_php=php$_phpver
+pkgdesc="The PHP extension installer"
+url="https://github.com/FriendsOfPHP/pickle"
+arch="noarch"
+license="BSD 3 Clause"
+depends=""
+makedepends="$_php $_php-phar $_php-json $_php-mbstring $_php-openssl $_php-dom $_php-xml $_php-simplexml $_php-session $_php-tokenizer composer git"
+options="!check"
+builddir="$srcdir/$pkgname-$pkgver"
+
+build() {
+  cd "$srcdir"
+
+  git clone https://github.com/FriendsOfPHP/pickle
+
+  cd pickle
+
+  composer install --no-dev --optimize-autoloader
+  curl -LSs https://box-project.github.io/box2/installer.php | php
+  php -d phar.readonly=0 box.phar build
+}
+
+package() {
+  install -m 0755 -D "$srcdir"/pickle/$pkgname.phar "$pkgdir"/usr/bin/$pkgname
+}

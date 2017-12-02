@@ -1,0 +1,177 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=1.4.28
+# Package release number is started at 100 so it overwrites the official package
+pkgrel=100
+pkgname=litespeed
+_pkgreal=openlitespeed
+_pkghome=var/lib/$pkgname
+pkgdesc="High-performance, lightweight, open source HTTP server"
+url="http://open.litespeedtech.com/"
+arch="all !aarch64 !ppc64le"
+license="GPL3"
+pkgusers=lsadm
+pkggroups=lsadm
+depends=
+depends_dev=
+makedepends="php7.2-litespeed linux-headers libressl-dev geoip-dev expat-dev pcre-dev zlib-dev file udns-dev coreutils"
+install="$pkgname.pre-install"
+subpackages="$pkgname-doc $pkgname-snmp::noarch"
+source="http://open.litespeedtech.com/packages/$_pkgreal-$pkgver.tgz
+configure.patch
+functions.sh.patch
+include.patch
+install.sh.patch
+libressl.patch
+$pkgname.initd
+ls_lock.c.patch
+ls_lock.h.patch
+pthreadmutex.cpp.patch
+thread.h.patch
+"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"
+
+  ./configure \
+    --host=$CHOST \
+    --build=$CBUILD \
+    --prefix=/var/lib/$pkgname \
+    --with-user=$pkgusers \
+    --with-group=$pkggroups \
+    --enable-adminssl=no \
+    --disable-rpath \
+    --disable-static \
+    --with-openssl=/usr \
+    --with-expat \
+    --with-pcre \
+    --with-zlib=/usr \
+    --with-lsphp7
+
+  make -j$jobs
+}
+
+prepare() {
+  cd "$builddir"
+
+  default_prepare
+
+  ln -sf /usr/bin/lsphp "$builddir"/dist/fcgi-bin/lsphp
+  rm "$builddir"/dist/admin/misc/php.ini
+  rm "$builddir"/dist/admin/conf/php.ini
+}
+
+check() {
+  cd "$builddir"
+
+  local allow_fail='yes'
+
+  make test || [ "$allow_fail" = yes ]
+}
+
+package() {
+  local file;
+
+  cd "$builddir"
+
+  # Create necessary users
+  sudo "$builddir"/../../$pkgname.pre-install
+
+  make DESTDIR="$pkgdir" install
+
+  mkdir -p "$pkgdir"/usr/lib/$pkgname \
+    "$pkgdir"/usr/sbin \
+    "$pkgdir"/var/log
+
+  # Remove some not used files
+  #rm -rf "$pkgdir"/$_pkghome/php* \
+  #  "$pkgdir"/$_pkghome/lib \
+  #  "$pkgdir"/$_pkghome/GPL* \
+  #  "$pkgdir"/$_pkghome/gdata \
+  #  "$pkgdir"/$_pkghome/autoupdate \
+  #  "$pkgdir"/$_pkghome/fcgi-bin/* \
+  #  "$pkgdir"/$_pkghome/bin/lshttpd \
+  #  "$pkgdir"/$_pkghome/admin/misc/gdb-bt \
+  #  "$pkgdir"/$_pkghome/admin/misc/convertxml.* \
+  #  "$pkgdir"/$_pkghome/admin/misc/build_admin_php.sh
+
+  # fix permissions
+  chown -R $pkgusers:$pkggroups \
+    "$pkgdir"/$_pkghome/conf \
+    "$pkgdir"/$_pkghome/admin/conf
+
+  #chown -R $pkgusers:$pkggroups \
+  #  "$pkgdir"/$_pkghome/tmp \
+  #  "$pkgdir"/$_pkghome/conf \
+  #  "$pkgdir"/$_pkghome/logs \
+  #  "$pkgdir"/$_pkghome/backup \
+  #  "$pkgdir"/$_pkghome/cachedata \
+  #  "$pkgdir"/$_pkghome/admin/tmp \
+  #  "$pkgdir"/$_pkghome/admin/logs \
+  #  "$pkgdir"/$_pkghome/admin/conf \
+  #  "$pkgdir"/$_pkghome/Example/logs
+
+  # Install configs
+  install -Dm755 "$srcdir"/$pkgname.initd \
+    "$pkgdir"/etc/init.d/$pkgname
+  mv "$pkgdir"/$_pkghome/conf \
+    "$pkgdir"/etc/$pkgname
+  mv "$pkgdir"/$_pkghome/admin/conf \
+    "$pkgdir"/etc/$pkgname/admin
+  ln -s /etc/$pkgname "$pkgdir"/$_pkghome/conf
+  ln -s /etc/$pkgname/admin "$pkgdir"/$_pkghome/admin/conf
+  find "$pkgdir"/etc/$pkgname -type f -print0 | xargs -0 chmod -x
+
+  # Install binaries
+  mv "$pkgdir"/$_pkghome/bin/$_pkgreal \
+    "$pkgdir"/usr/sbin/lshttpd
+  ln -sf /usr/sbin/lshttpd \
+    "$pkgdir"/$_pkghome/bin/$_pkgreal
+  ln -sf /usr/bin/lsphp \
+    "$pkgdir"/$_pkghome/fcgi-bin/lsphp
+
+  # Install modules
+  for file in $(find "$pkgdir"/$_pkghome/modules -name "*.so"); do
+    mv $file "$pkgdir"/usr/lib/$pkgname/${file##*/}
+    ln -s /usr/lib/$pkgname/${file##*/} $file
+  done
+
+  # Install logs
+  mv "$pkgdir"/$_pkghome/logs "$pkgdir"/var/log/$pkgname
+  mv "$pkgdir"/$_pkghome/admin/logs "$pkgdir"/var/log/$pkgname/admin
+  mv "$pkgdir"/$_pkghome/Example/logs "$pkgdir"/var/log/$pkgname/Example
+  ln -s /var/log/$pkgname "$pkgdir"/$_pkghome/logs
+  ln -s /var/log/$pkgname/admin "$pkgdir"/$_pkghome/admin/logs
+  ln -s /var/log/$pkgname/Example "$pkgdir"/$_pkghome/Example/logs
+}
+
+doc() {
+  default_doc
+
+  mkdir -p "$subpkgdir"/var/lib/$pkgname/docs
+  mv "$pkgdir"/$_pkghome/docs/* \
+    "$subpkgdir"/$_pkghome/docs
+}
+
+snmp() {
+  pkgdesc="$pkgdesc (snmp monitoring add-on + cacti templates)"
+  depends="$pkgname net-snmp"
+
+  mkdir -p "$subpkgdir"/$_pkghome/add-ons
+  mv "$pkgdir"/$_pkghome/add-ons/snmp_monitoring \
+    "$subpkgdir"/$_pkghome/add-ons
+}
+sha512sums="caddf146bec216e06f7f7864d6cca712aba626e12a8cbf4fc6c2bf5e9bf277c035a0cbb24248c2140402bba604f075a0233aa50e133fe5205b4b7d2e2f6b3499  openlitespeed-1.4.28.tgz
+5a3ade410272837116aa9aecc8a27e010af7e66030e7154da97f55adecc6e9b5b592edddb58fa1cf13d0f4a1ef74f7638eaddbd1841aa64887b609286c3ac3d0  configure.patch
+1d4bcf980727a802c2ac7e5709631551116eca6426012a4b9b6472e6c0a3f21986542f195562595f6a8ed0d6f5624f94d78eaef313b45729c586074640fb636a  functions.sh.patch
+827425bb9f2e5daea8ef69f79747785a56c09a33837c381a961f798d1110f89629324531c028e0010a51aa0639ba5c6be81b80b10779a23ae7f1f84dd7b0b596  include.patch
+626da7ab3f8352b6b2fbb22c7d8aed3feaebeb5cdb87d6c7f75f56ffa82a8d05aa70d533d3bf91a3037dc5e41b6759746b2284ba70063b919ae8767c21bbc227  install.sh.patch
+189aa909a54c69ab12ba401a889d7d2507af7c651cd77fdd0fb4a811702b699a094aa150f20dc9f6d1566518a6b7d04a21ac43a81f1cb34f7eca82df9287b36d  libressl.patch
+a2c7826cbcb1cc7ad3745d31d2f0c189fb43844a2c465de075f2e563bf68cdbe532339f4e34b4379472bc5d0bdd34f64f92ea87c3df8c054a3b694be8a52bc3b  litespeed.initd
+83e0159a59ebf42365ff26254cebed0da3b8c64be4b99111f70c1327e801d28c60d7eeacd2cad6c4b5c339fde6dc0e699e7480a3d5ae2e9b9c38d224487453ad  ls_lock.c.patch
+4168a15def633801f6fd8a740e5bfa95cb61d6d675a0f3cae92404792d9bbc9d7b93103a88d5faf5dd4fcaa842e5653b2144d33835c92d9f45cc9e6b09f3fb8f  ls_lock.h.patch
+9b89ebb334dc0cc5cc1242452642f096886f3eb962e7aa6a2a19ce66dc71e6b827b3c001acbd1d3b4e5e8e9351eac18a0cf3062515e8779e4dc3da1e7b77fd8a  pthreadmutex.cpp.patch
+6f82dcd6ccc235a6eedca09f401db3e6e0c766f1854600c82fe2aba4b3013dccd2f8135f8bbcc9cabf84376226b6b68373ce187795a7642d0da3df56aac5f559  thread.h.patch"

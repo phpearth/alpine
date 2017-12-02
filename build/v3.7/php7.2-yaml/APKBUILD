@@ -1,0 +1,61 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=2.0.2
+# Package release number is started at 100 so it overwrites the official package
+pkgrel=100
+_phpver=7.2
+_php=php$_phpver
+_pkgreal=yaml
+pkgname=$_php-$_pkgreal
+pkgdesc="PHP $_phpver extension - Support for YAML (YAML Ain't Markup Language) serialization using the LibYAML library"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="MIT"
+depends="$_php-common"
+makedepends="$_php-dev coreutils yaml-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
+replaces="php-$_pkgreal php7-$_pkgreal"
+
+prepare() {
+  default_prepare
+}
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"
+
+  phpize
+
+  EXTENSION_DIR=/usr/lib/php/$_phpver/modules \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
+    --prefix=/usr \
+    --with-php-config=/usr/bin/php-config
+
+  make -j$jobs
+}
+
+check() {
+  cd "$builddir"
+
+  local allow_fail='yes'
+
+  NO_INTERACTION=1 REPORT_EXIT_STATUS=1 \
+    SKIP_SLOW_TESTS=1 SKIP_ONLINE_TESTS=1 TEST_TIMEOUT=10 \
+    TZ= LANG= LC_ALL= \
+    make test || [ "$allow_fail" = yes ]
+}
+
+package() {
+  mkdir -p "$pkgdir"
+  install -d $pkgdir/
+  make -C "$builddir" INSTALL_ROOT="$pkgdir" install
+  install -d "$pkgdir"/etc/php/$_phpver/conf.d
+  echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
+}
+sha512sums="b3dd2098826cd7cdcfd1e5d97b9015de66812dc90e506e74a4a50a56afed5f9de0449465bb807a36a13170f479897cc62a9b108653aa7eb81895abd5966bde1a  yaml-2.0.2.tgz"

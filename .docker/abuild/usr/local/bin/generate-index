@@ -3,7 +3,7 @@
 # Generate index file APKINDEX.tar.gz
 # Usage generate-index [repository]
 
-REPO="${1:-main}"
+REPO="${1:-v3.7}"
 
 cd /repo/$REPO/x86_64
 apk index -o APKINDEX.unsigned.tar.gz *.apk --rewrite-arch x86_64

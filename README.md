@@ -17,15 +17,11 @@ apk add --no-cache wget ca-certificates \
 && echo "https://repos.php.earth/alpine" >> /etc/apk/repositories
 ```
 
-PHP.earth packages are prefixed with `php7.0`, `php7.1`, and `php7.2`:
+PHP.earth packages are prefixed with `php7.2`, `php7.1`, and `php7.1`:
 
 ```bash
 apk search --no-cache php7.2*
 ```
-
-## Requirements
-
-* Alpine Linux `3.6`
 
 ## Documentation
 

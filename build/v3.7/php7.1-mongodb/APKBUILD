@@ -1,0 +1,58 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=1.3.4
+pkgrel=0
+_phpver=7.1
+_php=php$_phpver
+_pkgreal=mongodb
+pkgname=$_php-$_pkgreal
+pkgdesc="PHP $_phpver MongoDB extension"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="Apache"
+depends="$_php-common $_php-json"
+makedepends="$_php-dev coreutils openssl-dev pcre-dev bash"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+prepare() {
+  default_prepare
+}
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"
+
+  phpize
+
+  EXTENSION_DIR=/usr/lib/php/$_phpver/modules \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
+    --prefix=/usr \
+    --with-php-config=/usr/bin/php-config
+
+  make -j$jobs
+}
+
+check() {
+  cd "$builddir"
+
+  local allow_fail='yes'
+
+  NO_INTERACTION=1 REPORT_EXIT_STATUS=1 \
+    SKIP_SLOW_TESTS=1 SKIP_ONLINE_TESTS=1 TEST_TIMEOUT=10 \
+    TZ= LANG= LC_ALL= \
+    make test || [ "$allow_fail" = yes ]
+}
+
+package() {
+  mkdir -p "$pkgdir"
+  install -d $pkgdir/
+  make -C "$builddir" INSTALL_ROOT="$pkgdir" install
+  install -d "$pkgdir"/etc/php/$_phpver/conf.d
+  echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/00_$_pkgreal.ini
+}
+sha512sums="16c82ada278eac6996065d3c594237fbb8c1a7fe4e21828aa8af9ef98033cf6dfaf0fee90095e8116e946e620b551a6122238f85865a6c47d4d087f784cd54ea  mongodb-1.3.3.tgz"
