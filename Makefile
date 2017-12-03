@@ -1,4 +1,4 @@
-.PHONY: help build package generate-index abuild-generate-private-key abuild-generate-public-key clean sh
+.PHONY: help build package generate-index abuild-generate-private-key abuild-generate-public-key clean sh upload
 .DEFAULT_GOAL := help
 
 TIME=$(shell date +"%Y-%m-%d-%H-%M-%S")
@@ -22,10 +22,13 @@ abuild-generate-private-key: ## Generate new private key
 	@docker-compose -f .docker/docker-compose.yaml run abuild openssl genrsa -out phpearth.rsa.priv 4096 --build --force-recreate
 
 abuild-generate-public-key: ## Generate new public key
-	@docker-compose -f .docker/docker-compose.yaml run abuild openssl rsa -in phpearth.rsa.priv -pubout -out /repo/phpearth.rsa.pub
+	@docker-compose -f .docker/docker-compose.yaml run abuild openssl rsa -in phpearth.rsa.priv -pubout -out /public/phpearth.rsa.pub
 
 clean: ## Remove pkg, src, tmp and log folders when building packages for Alpine
 	@rm -rf build/v3.7/*/pkg build/v3.7/*/src build/v3.7/*/tmp log/*
 
 sh: ## Run shell
 	@docker-compose -f .docker/docker-compose.yaml run --rm abuild sh
+
+upload: ## Upload build packages to Linux repos server
+	@rsync -aP public/ repos.php.earth:~/repos/alpine/

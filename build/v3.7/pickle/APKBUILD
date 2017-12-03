@@ -11,7 +11,7 @@ url="https://github.com/FriendsOfPHP/pickle"
 arch="noarch"
 license="BSD 3 Clause"
 depends=""
-makedepends="$_php $_php-phar $_php-json $_php-mbstring $_php-openssl $_php-dom $_php-xml $_php-simplexml $_php-session $_php-tokenizer composer git"
+makedepends="$_php $_php-phar $_php-json $_php-mbstring $_php-openssl $_php-dom $_php-xml $_php-simplexml $_php-session $_php-tokenizer $_php-zip composer git"
 options="!check"
 builddir="$srcdir/$pkgname-$pkgver"
 
