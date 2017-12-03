@@ -1,6 +1,6 @@
-/repo/*
-!/repo
-!/repo/.gitkeep
+/public/*
+!/public
+!/public/phpearth.rsa.pub
 /build/*/*/pkg
 /build/*/*/src
 /build/*/*/tmp

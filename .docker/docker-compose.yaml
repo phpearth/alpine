@@ -8,5 +8,5 @@ services:
     container_name: phpearth-abuild
     volumes:
       - ../build:/build
-      - ../repo:/repo
+      - ../public:/public
     working_dir: /build

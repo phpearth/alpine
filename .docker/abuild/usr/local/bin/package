@@ -60,8 +60,8 @@ php7.2-yaml
 
 # To build PHP Pecl extensions and some packages, we'll need some deps from the
 # local PHP.earth Alpine repository
-mkdir -p /repo/v3.7/x86_64
-abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /repo/v3.7/x86_64/APKINDEX.tar.gz
+mkdir -p /public/v3.7/x86_64
+abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /public/v3.7/x86_64/APKINDEX.tar.gz
 sudo apk update
 
 if [ "$BUILD_PACKAGES" = "7.0" ]; then
