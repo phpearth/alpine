@@ -31,4 +31,4 @@ sh: ## Run shell
 	@docker-compose -f .docker/docker-compose.yaml run --rm abuild sh
 
 upload: ## Upload build packages to Linux repos server
-	@rsync -aP public/ repos.php.earth:~/repos/alpine/
+	@rsync -avz --del public/ repos.php.earth:~/repos/alpine/
