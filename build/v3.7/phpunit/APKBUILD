@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=6.5.3
+pkgver=6.5.4
 pkgrel=0
 pkgname=phpunit
 pkgdesc="The PHP Unit Testing framework"
@@ -15,4 +15,4 @@ options="!check"
 package() {
   install -m 0755 -D "$srcdir"/$pkgname-$pkgver.phar "$pkgdir"/usr/bin/$pkgname
 }
-sha512sums="e55f87818b6da561ff807cea8fdf767ed78d79b9f7101fc4d8d751e1b2fa97adf2cc845ba4d4591abd2873a4a9295bdfc3342e38fbe03be62ef2ca9e34e2749f  phpunit-6.5.3.phar"
+sha512sums="90fb55a37abfccc1dc81546446854b04102d3b6e6fcf3437d5f2fcfcb8f95eff0a7eb41f7e5f318dd7cd19c2ac8974687884f9f5b3170a2a0af6b864229825ab  phpunit-6.5.4.phar"
