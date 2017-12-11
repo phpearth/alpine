@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2017-01-01
 
+* ...
+
+## [0.0.7] 2017-12-11
+
 * Swoole 1.9.23
 * Composer 1.5.5
 * New package Pickle
@@ -13,8 +17,7 @@ All notable changes to this project will be documented in this file. This projec
 * PHPUnit 6.5.4
 * MongoDB 1.3.4
 * Alpine 3.7 minimal requirement
-* Swoole 2.0.10-rc3
-* ...
+* Additional package Swoole 2.0.10-rc3 for PHP 7.2
 
 ## [0.0.6] 2017-11-22
 
