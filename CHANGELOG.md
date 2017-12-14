@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2017-01-01
 
+* Swoole 2.0.10
 * ...
 
 ## [0.0.7] 2017-12-11
