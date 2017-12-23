@@ -55,6 +55,7 @@ php7.2-phpunit
 php7.2-pickle
 php7.2-redis
 php7.2-swoole
+php7.2-xdebug
 php7.2-yaml
 "
 
