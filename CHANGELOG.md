@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 * PHPUnit 6.5.5
 * Composer 1.5.6
 * Redis PECL extension 3.1.5
+* Xdebug fixed for PHP 7.0 and 7.1
 * ...
 
 ## [0.0.7] 2017-12-11
