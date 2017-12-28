@@ -18,3 +18,5 @@ RUN apk add --no-cache alpine-sdk \
 COPY . /
 
 USER packager
+
+WORKDIR /build
