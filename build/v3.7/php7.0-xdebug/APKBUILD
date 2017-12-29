@@ -1,8 +1,8 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=2.6.0
-pkgrel=1
-_pkgrealver=2.6.0alpha1
+pkgrel=2
+_pkgrealver=2.6.0beta1
 _phpver=7.0
 _php=php$_phpver
 _pkgreal=xdebug
@@ -58,4 +58,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "zend_extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="ffd3b5ca78c6b42773ad43cedbe18ccd6d4ed34b709cbd821d4496d384e2bf9a90bb23c53011d490047f28d198b08b225c2b445a8dfe420769587065098f2e89  xdebug-2.6.0alpha1.tgz"
+sha512sums="2544d150d1ffc439c148ffa0b61f762b365fc77bc74d870c15c8f6d6869309a39ba21e6347651478e00be7f6ee93a1388340f9ec9c00e79f83f2c8220fd6c008  xdebug-2.6.0beta1.tgz"
