@@ -4,11 +4,12 @@ All notable changes to this project will be documented in this file. This projec
 [keeps a CHANGELOG](http://keepachangelog.com/) and adheres to
 [Semantic Versioning](http://semver.org/).
 
-## [UNREALEASED] 2017-01-01
+## [UNREALEASED] 2018-01-01
 
 * Swoole 2.0.12
 * Xdebug 2.6.0beta1
 * APCu 5.1.9
+* PHP 7.0.27
 * ...
 
 ## [0.0.8] 2017-12-28
