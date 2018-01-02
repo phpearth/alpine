@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This projec
 
 * Swoole 2.0.12
 * Xdebug 2.6.0beta1
+* APCu 5.1.9
 * ...
 
 ## [0.0.8] 2017-12-28
