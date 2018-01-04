@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 * PHP 7.0.27
 * PHP 7.1.13
 * Redis 3.1.6
-* Composer 1.6.0
+* Composer 1.6.1
 * PHP 7.2.1
 * ...
 
