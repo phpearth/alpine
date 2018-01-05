@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2018-01-01
 
+* ...
+
+## [0.0.9] 2018-01-05
+
 * Swoole 2.0.12
 * Xdebug 2.6.0beta1
 * APCu 5.1.9
@@ -14,7 +18,6 @@ All notable changes to this project will be documented in this file. This projec
 * Redis 3.1.6
 * Composer 1.6.1
 * PHP 7.2.1
-* ...
 
 ## [0.0.8] 2017-12-28
 
