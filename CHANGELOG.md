@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2018-01-01
 
+* Composer 1.6.2
 * ...
 
 ## [0.0.9] 2018-01-05
