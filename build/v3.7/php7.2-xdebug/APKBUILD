@@ -2,8 +2,8 @@
 
 pkgver=2.6.0
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=101
-_pkgrealver=2.6.0beta1
+pkgrel=102
+_pkgrealver=2.6.0RC2
 _phpver=7.2
 _php=php$_phpver
 _pkgreal=xdebug
@@ -14,7 +14,7 @@ arch="all"
 license="The Xdebug license"
 depends="$_php-common"
 makedepends="$_php-dev coreutils"
-source="https://pecl.php.net/get/$_pkgreal-$_pkgrealver.tgz"
+source="https://xdebug.org/files/xdebug-$_pkgrealver.tgz"
 builddir="$srcdir/$_pkgreal-$_pkgrealver"
 provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
 replaces="php-$_pkgreal php7-$_pkgreal"
@@ -59,4 +59,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="2544d150d1ffc439c148ffa0b61f762b365fc77bc74d870c15c8f6d6869309a39ba21e6347651478e00be7f6ee93a1388340f9ec9c00e79f83f2c8220fd6c008  xdebug-2.6.0beta1.tgz"
+sha512sums="48f0f568738e37663fe1f4dee1727e45be411ce8e698b99721d2ab7ce9fa4a869b7c0d9c5d05c5be81d2ae0e914f85bdabacd341b9af1626a12310c9b224a703  xdebug-2.6.0RC2.tgz"
