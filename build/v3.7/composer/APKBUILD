@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.6.2
+pkgver=1.6.3
 # Package release number is started at 100 so it overwrites the official package
 pkgrel=100
 pkgname=composer
@@ -16,4 +16,4 @@ options="!check"
 package() {
   install -m 0755 -D "$srcdir"/$pkgname-$pkgver.phar "$pkgdir"/usr/bin/$pkgname
 }
-sha512sums="6706b9ba03e5f1db57285f701e89fc54f2a1b3d6aa64a921699fcd0725a6e80bf659b7aaf7a49fd6a7b3f3521180ea2db2a59282b5b817812635f69d2969d73e  composer-1.6.2.phar"
+sha512sums="ec6ed7f897709a79f39c73d6a373d82516fbd32930070ab073f831c81c813a0cc155a08a0b56257938563f453e567ba4738051ae9956f856e43528b5262c2b3c  composer-1.6.3.phar"
