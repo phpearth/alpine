@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2018-01-01
 
+* PHPUnit 6.5.6
+* PHP 7.2.2
 * Composer 1.6.3
 * Xdebug 2.6.0
 * ...
