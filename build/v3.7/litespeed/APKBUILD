@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.4.28
+pkgver=1.4.29
 # Package release number is started at 100 so it overwrites the official package
 pkgrel=100
 pkgname=litespeed
@@ -164,7 +164,7 @@ snmp() {
   mv "$pkgdir"/$_pkghome/add-ons/snmp_monitoring \
     "$subpkgdir"/$_pkghome/add-ons
 }
-sha512sums="caddf146bec216e06f7f7864d6cca712aba626e12a8cbf4fc6c2bf5e9bf277c035a0cbb24248c2140402bba604f075a0233aa50e133fe5205b4b7d2e2f6b3499  openlitespeed-1.4.28.tgz
+sha512sums="5027d50b8a9dbeeb09e05c875afde6dd0a951902f2b073f02734c60ecdc1063bf19d556bf9a68e053b47369621d2387f0426e2c9066fb96ca6af66d7e5f3593b  openlitespeed-1.4.29.tgz
 5a3ade410272837116aa9aecc8a27e010af7e66030e7154da97f55adecc6e9b5b592edddb58fa1cf13d0f4a1ef74f7638eaddbd1841aa64887b609286c3ac3d0  configure.patch
 1d4bcf980727a802c2ac7e5709631551116eca6426012a4b9b6472e6c0a3f21986542f195562595f6a8ed0d6f5624f94d78eaef313b45729c586074640fb636a  functions.sh.patch
 827425bb9f2e5daea8ef69f79747785a56c09a33837c381a961f798d1110f89629324531c028e0010a51aa0639ba5c6be81b80b10779a23ae7f1f84dd7b0b596  include.patch
