@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## [UNREALEASED] 2018-01-01
 
+* MongoDB 1.4.0
 * PHPUnit 7.0.0 and removal of PHPUnit support for PHP 7.0
 * OpenLiteSpeed 1.4.29
 * PHP 7.1.14
