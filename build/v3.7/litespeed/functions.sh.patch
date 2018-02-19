@@ -9,7 +9,7 @@
  		fi
  	fi
  }
-@@ -626,7 +626,7 @@
+@@ -625,7 +625,7 @@
  	  if [ ! -d "$LSWS_HOME/$arg" ]; then
  		  mkdir "$LSWS_HOME/$arg"
  	  fi
@@ -18,7 +18,7 @@
  	  chmod $PERM  "$LSWS_HOME/$arg"
  	done
  	
-@@ -643,7 +643,7 @@
+@@ -642,7 +642,7 @@
  	  do
  	  if [ -f "$LSINSTALL_DIR/$arg" ]; then 
  	    cp -f "$LSINSTALL_DIR/$arg" "$LSWS_HOME/$arg"
@@ -27,7 +27,7 @@
  	    chmod $PERM  "$LSWS_HOME/$arg"
  	  fi
  	done
-@@ -662,7 +662,7 @@
+@@ -661,7 +661,7 @@
  	    cp "$LSINSTALL_DIR/$arg" "$LSWS_HOME/$arg"
  	  fi
  	  if [ -f "$LSWS_HOME/$arg" ]; then
@@ -36,7 +36,7 @@
          chmod $PERM  "$LSWS_HOME/$arg"
        fi
  	done
-@@ -678,7 +678,7 @@
+@@ -677,7 +677,7 @@
  	for arg
  	  do
  	  cp -R "$LSINSTALL_DIR/$arg/"* "$LSWS_HOME/$arg/"
@@ -45,7 +45,7 @@
        #chmod -R $PERM  $LSWS_HOME/$arg/*
  	done
  }
-@@ -696,7 +696,7 @@
+@@ -695,7 +695,7 @@
  	for arg
  	  do
  	  cp -R "$LSINSTALL_DIR/$arg/"* "$LSWS_HOME/$arg.$VERSION/"
@@ -54,7 +54,7 @@
        $TEST_BIN -L "$LSWS_HOME/$arg"
        if [ $? -eq 0 ]; then
  		  rm -f "$LSWS_HOME/$arg"
-@@ -718,7 +718,7 @@
+@@ -717,7 +717,7 @@
  	for arg
  	  do
  	  cp -f "$LSINSTALL_DIR/$arg" "$LSWS_HOME/$arg.$VERSION"
@@ -63,7 +63,7 @@
  	  chmod $PERM  "$LSWS_HOME/$arg.$VERSION"
        $TEST_BIN -L "$LSWS_HOME/$arg"
        if [ $? -eq 0 ]; then
-@@ -735,11 +735,11 @@
+@@ -734,11 +734,11 @@
      umask 022
  	if [ $INST_USER = "root" ]; then
  		SDIR_OWN="root:$ROOTGROUP"
@@ -77,7 +77,7 @@
  
  	OWNER=$1
  	PERM=$2
-@@ -750,7 +750,7 @@
+@@ -749,7 +749,7 @@
  	  if [ ! -f "$LSWS_HOME/$arg" ]; then
  		  cp "$LSINSTALL_DIR/$arg" "$LSWS_HOME/$arg"
  	  fi
@@ -86,7 +86,7 @@
  	  chmod $PERM  "$LSWS_HOME/$arg"
  	done
  }
-@@ -765,7 +765,7 @@
+@@ -764,7 +764,7 @@
  	for arg
  	  do
  	  cp -R "$LSINSTALL_DIR/$arg/"* "$LSWS_HOME/$arg/"
@@ -95,7 +95,7 @@
        #chmod -R $PERM  $LSWS_HOME/$arg/*
  	done
  }
-@@ -784,7 +784,7 @@
+@@ -783,7 +783,7 @@
  	  do
        if [ -d "$LSINSTALL_DIR/$arg" ]; then
          cp -R "$LSINSTALL_DIR/$arg/"* "$LSWS_HOME/$arg.$VERSION/"
@@ -104,7 +104,7 @@
          $TEST_BIN -L "$LSWS_HOME/$arg"
          if [ $? -eq 0 ]; then
  		  rm -f "$LSWS_HOME/$arg"
-@@ -809,7 +809,7 @@
+@@ -808,7 +808,7 @@
  	  if [ -f "$LSINSTALL_DIR/$arg" ]; then
  	  
          cp -f "$LSINSTALL_DIR/$arg" "$LSWS_HOME/$arg.$VERSION"
@@ -113,7 +113,7 @@
          chmod $PERM  "$LSWS_HOME/$arg.$VERSION"
          $TEST_BIN -L "$LSWS_HOME/$arg"
          if [ $? -eq 0 ]; then
-@@ -841,11 +841,11 @@
+@@ -840,11 +840,11 @@
  
  create_lsadm()
  {
@@ -128,12 +128,16 @@
      #1>/dev/null 2>&1
      
  }
-@@ -880,12 +880,12 @@
+@@ -879,7 +879,7 @@
              CONF_OWN="lsadm:lsadm"
          fi
- 		SDIR_OWN="root:$ROOTGROUP"
+         SDIR_OWN="root:$ROOTGROUP"
 -        chown $SDIR_OWN $LSWS_HOME
 +        #chown $SDIR_OWN $LSWS_HOME
+     else
+         SDIR_OWN=$DIR_OWN
+     fi
+@@ -921,8 +921,8 @@
  	else
  		SDIR_OWN=$DIR_OWN
  	fi
@@ -144,7 +148,7 @@
      if [ -d "$LSWS_HOME/admin/html.$VERSION" ]; then
          rm -rf "$LSWS_HOME/admin/html.$VERSION"
      fi
-@@ -894,10 +894,10 @@
+@@ -932,10 +932,10 @@
      util_mkdir "$CONF_OWN" $SDIR_MOD conf conf/cert conf/templates conf/vhosts conf/vhosts/Example admin/conf admin/tmp phpbuild
      util_mkdir "$SDIR_OWN" $SDIR_MOD admin/cgid admin/cgid/secret
      util_mkdir "$DIR_OWN" $SDIR_MOD tmp/ocspcache
@@ -158,7 +162,7 @@
      util_mkdir "$SDIR_OWN" $DIR_MOD Example 
  
      find "$LSWS_HOME/admin/tmp" -type s -atime +1 -delete 2>/dev/null
-@@ -919,7 +919,7 @@
+@@ -957,7 +957,7 @@
      
      util_ccpfile "$SDIR_OWN" $EXEC_MOD fcgi-bin/lsperld.fpl fcgi-bin/RackRunner.rb
      util_cpfile "$SDIR_OWN" $EXEC_MOD  fcgi-bin/RailsRunner.rb  fcgi-bin/RailsRunner.rb.2.3
@@ -167,7 +171,7 @@
      util_cpfile "$SDIR_OWN" $EXEC_MOD admin/misc/ap_lsws.sh.in admin/misc/build_ap_wrapper.sh admin/misc/cpanel_restart_httpd.in admin/misc/build_admin_php.sh admin/misc/convertxml.sh
  	util_cpfile "$SDIR_OWN" $DOC_MOD admin/misc/gdb-bt admin/misc/htpasswd.php admin/misc/php.ini admin/misc/genjCryptionKeyPair.php admin/misc/purge_cache_byurl.php
      util_cpfile "$SDIR_OWN" $DOC_MOD admin/misc/convertxml.php
-@@ -971,7 +971,7 @@
+@@ -1009,7 +1009,7 @@
  		util_cpdir "$SDIR_OWN" $DOC_MOD Example/html Example/cgi-bin
  	fi
  

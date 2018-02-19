@@ -1,6 +1,6 @@
 --- a/include/lsr/ls_lock.h
 +++ b/include/lsr/ls_lock.h
-@@ -52,16 +52,9 @@
+@@ -55,16 +55,9 @@
  extern "C" {
  #endif
  

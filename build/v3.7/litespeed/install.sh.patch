@@ -1,6 +1,6 @@
 --- a/dist/install.sh
 +++ b/dist/install.sh
-@@ -35,11 +35,7 @@
+@@ -50,11 +50,7 @@
      fi
          
      if [ "x$OS" = "xLinux" ] ; then
@@ -13,3 +13,12 @@
          
          if [ $? = 0 ] ; then 
              HASADMINPHP=y
+@@ -235,8 +231,6 @@
+     check_os
+     if [ "x$OSNAME" = "xcentos" ] ; then
+         install_lsphp7_centos
+-    else
+-        install_lsphp7_debian
+     fi
+ }
+ 

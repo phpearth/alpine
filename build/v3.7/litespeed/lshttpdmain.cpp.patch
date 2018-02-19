@@ -1,0 +1,11 @@
+--- a/src/main/lshttpdmain.cpp
++++ b/src/main/lshttpdmain.cpp
+@@ -47,7 +47,7 @@
+ #include <util/stringlist.h>
+ #include <util/signalutil.h>
+ #include <util/vmembuf.h>
+-#include <sys/sysctl.h>
++#include <linux/sysctl.h>
+ 
+ #include <extensions/cgi/cgidworker.h>
+ #include <extensions/registry/extappregistry.h>

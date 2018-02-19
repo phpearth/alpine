@@ -1,6 +1,6 @@
 --- a/src/lsr/ls_lock.c
 +++ b/src/lsr/ls_lock.c
-@@ -118,11 +118,7 @@
+@@ -121,11 +121,7 @@
  #else  /* defined(USE_MUTEX_ADAPTIVE) */
      /* pthread_mutexattr_settype(&myAttr, PTHREAD_MUTEX_NORMAL); */
      pthread_mutexattr_settype(&myAttr,

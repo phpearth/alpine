@@ -1,0 +1,22 @@
+--- a/src/sslpp/sslcontext.cpp
++++ b/src/sslpp/sslcontext.cpp
+@@ -622,7 +622,9 @@
+ int SslContext::initSNI(void *param)
+ {
+ #ifdef SSL_TLSEXT_ERR_OK
+-    SSL_CTX_set_cert_cb(m_pCtx, SslConnection_ssl_servername_cb, param);
++    SSL_CTX_set_tlsext_servername_callback(m_pCtx,
++                                           SslConnection_ssl_servername_cb);
++    SSL_CTX_set_tlsext_servername_arg(m_pCtx, param);
+ 
+     return 0;
+ #else
+@@ -730,7 +732,7 @@
+ #ifdef TLSEXT_TYPE_application_layer_protocol_negotiation
+     SSL_CTX_set_alpn_select_cb(m_pCtx, SSLConntext_alpn_select_cb, this);
+ #endif
+-#ifdef TLSEXT_TYPE_next_proto_neg
++#if defined(TLSEXT_TYPE_next_proto_neg) || defined(LIBRESSL_VERSION_NUMBER)
+     SSL_CTX_set_next_protos_advertised_cb(m_pCtx,
+                                           SslConnection_ssl_npn_advertised_cb, this);
+ #else

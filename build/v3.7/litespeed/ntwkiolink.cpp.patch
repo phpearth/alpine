@@ -1,0 +1,14 @@
+--- a/src/http/ntwkiolink.cpp
++++ b/src/http/ntwkiolink.cpp
+@@ -1519,11 +1519,6 @@
+     return 0;
+ }
+ 
+-#ifdef OPENSSL_IS_BORINGSSL
+-#include <openssl/internal.h>
+-#elif OPENSSL_VERSION_NUMBER >= 0x10100000L
+-#include <openssl/ssl_local.h>
+-#endif
+ void NtwkIOLink::handle_acceptSSL_EIO_Err()
+ {
+     //The buf is null terminated string

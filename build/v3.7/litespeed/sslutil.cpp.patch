@@ -1,21 +1,6 @@
-diff --git a/src/sslpp/sslcontext.cpp b/src/sslpp/sslcontext.cpp
-index a701325..341b2da 100644
---- a/src/sslpp/sslcontext.cpp
-+++ b/src/sslpp/sslcontext.cpp
-@@ -723,7 +723,7 @@ int SslContext::enableSpdy(int level)
- #ifdef TLSEXT_TYPE_application_layer_protocol_negotiation
-     SSL_CTX_set_alpn_select_cb(m_pCtx, SSLConntext_alpn_select_cb, this);
- #endif
--#ifdef TLSEXT_TYPE_next_proto_neg
-+#if defined(TLSEXT_TYPE_next_proto_neg) || defined(LIBRESSL_VERSION_NUMBER)
-     SSL_CTX_set_next_protos_advertised_cb(m_pCtx,
-                                           SslConnection_ssl_npn_advertised_cb, this);
- #else
-diff --git a/src/sslpp/sslutil.cpp b/src/sslpp/sslutil.cpp
-index 6561c04..afd9272 100644
 --- a/src/sslpp/sslutil.cpp
 +++ b/src/sslpp/sslutil.cpp
-@@ -851,7 +851,16 @@ int  SslUtil::getPrivateKeyPem(SSL_CTX *pCtx, AutoBuf *pBuf)
+@@ -850,7 +850,16 @@
  {
      int ret = -1;
      BIO *pOut = BIO_new(BIO_s_mem());
@@ -33,7 +18,7 @@ index 6561c04..afd9272 100644
  
      if (PEM_write_bio_PrivateKey(pOut, pKey, NULL, NULL, 0, NULL, NULL))
          ret = bioToBuf(pOut, pBuf);
-@@ -863,7 +872,16 @@ int  SslUtil::getCertPem(SSL_CTX *pCtx, AutoBuf *pBuf)
+@@ -862,7 +871,16 @@
  {
      int ret = -1;
      BIO *pOut = BIO_new(BIO_s_mem());
