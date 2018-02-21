@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-02-21
 
 * New extension php-meminfo
+* MongoDB 1.4.1
 
 ## 2018-02-19
 
