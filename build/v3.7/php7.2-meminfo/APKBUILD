@@ -1,0 +1,60 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=1.0.1
+# Package release number is started at 100 so it overwrites possible official package
+pkgrel=100
+_phpver=7.2
+_php=php$_phpver
+_pkgreal=meminfo
+pkgname=$_php-$_pkgreal
+pkgdesc="PHP $_phpver extension to get insight about memory usage"
+url="https://github.com/BitOne/php-meminfo"
+arch="all"
+license="MIT"
+depends="$_php-common"
+makedepends="$_php-dev coreutils"
+source="$_pkgreal-$pkgver.tar.gz::https://github.com/BitOne/php-meminfo/archive/v$pkgver.tar.gz"
+builddir="$srcdir/php-$_pkgreal-$pkgver"
+
+prepare() {
+  default_prepare
+}
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"/extension/php7
+
+  phpize
+
+  EXTENSION_DIR=/usr/lib/php/$_phpver/modules \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
+    --prefix=/usr \
+    --with-php-config=/usr/bin/php-config \
+    --enable-meminfo
+
+  make -j $jobs
+}
+
+check() {
+  cd "$builddir"/extension/php7
+
+  local allow_fail='yes'
+
+  NO_INTERACTION=1 REPORT_EXIT_STATUS=1 \
+    SKIP_SLOW_TESTS=1 SKIP_ONLINE_TESTS=1 TEST_TIMEOUT=10 \
+    TZ= LANG= LC_ALL= \
+    make test || [ "$allow_fail" = yes ]
+}
+
+package() {
+  mkdir -p "$pkgdir"
+  install -d $pkgdir/
+  make -C "$builddir"/extension/php7 INSTALL_ROOT="$pkgdir" install
+  install -d "$pkgdir"/etc/php/$_phpver/conf.d
+  echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
+}
+sha512sums="49f2fc1075bb0a3bb5f38dd5f3693dc9969e63d10cd874d27b51617e6a34568c2d3e64f70e30196b5b79930e020a2cd64177b7bcba195c437b1239d33ff60f44  meminfo-1.0.1.tar.gz"
