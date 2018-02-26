@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-02-26
+
+* PHPUnit 7.0.2
+
 ## 2018-02-21
 
 * New extension php-meminfo
