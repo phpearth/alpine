@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-03-02
+
+* PHP 7.2.3
+
 ## 2018-02-28
 
 * PHP 7.0.28
