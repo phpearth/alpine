@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-03-10
+
+* APCu 5.1.11
+* MongoDB 1.4.2
+* Swoole 2.1.1
+
 ## 2018-03-02
 
 * PHP 7.2.3
