@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file. This projec
 * APCu 5.1.11
 * MongoDB 1.4.2
 * Swoole 2.1.1
+* Argon2 20171227
+* PHP 7.2.3 r101 - rebuilt to acquire proper Argon2 library shared object.
 
 ## 2018-03-02
 
