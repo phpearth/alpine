@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 * Swoole 2.1.1
 * Argon2 20171227
 * PHP 7.2.3 r101 - rebuilt to acquire proper Argon2 library shared object.
+* OpenLiteSpeed 1.5.0 RC2 r101 - rebuilt to acquire proper Argon2 library shared object.
 
 ## 2018-03-02
 

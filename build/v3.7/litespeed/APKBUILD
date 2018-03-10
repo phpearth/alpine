@@ -3,7 +3,7 @@
 pkgver=1.5.0
 _pkgrealver=rc2
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=101
 pkgname=litespeed
 _pkgreal=openlitespeed
 _pkghome=var/lib/$pkgname
