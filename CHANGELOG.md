@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-03-17
+
+* Redis 4.0.0
+
 ## 2018-03-10
 
 * APCu 5.1.11
