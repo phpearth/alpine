@@ -3,9 +3,9 @@
 pkgname=php7.2
 _pkgreal=php
 _phpver=7.2
-pkgver=7.2.3
+pkgver=7.2.4
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=101
+pkgrel=100
 _apiver=20170718
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -619,7 +619,7 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="843d4ae46182eaec58beb583a321c55a6baddb0dbf1b77d7cf31953d816fc74813937576a87d0a18d388d256c5ec3f1c80065ec636e2f70d362384112b8c6c72  php-7.2.3.tar.xz
+sha512sums="d1d0720f0d4bb28f7ce0ec7c859b14c1e74e9d0e7c73de6988d5ce737d7ccb7308c0a7a2651ee012c630be2cd53e6531505df0a03f0efbb6359176b446982244  php-7.2.4.tar.xz
 1ff2a0a98fadd90b32dd1f8e94b4102ff6b713ee3e6687821b063ff2a7eabea42b963bc88db5668a1dfd7269e62b65f96a1530c3da16992840fc92686a7aa4f4  allow-build-recode-and-imap-together.patch
 0955b336f0847967dbc9760131bacc0238c8b5dc84c09902bae7b2ffa62a78a6d22fd95fb140286e7f8171da128ad9ff3f9e885607242573b75ad8a384353913  config.m4.patch
 d018570f6e0e240d8b1c61370c45a397137492cff292869338714abfde9f84c396687072a41154d06387ee92ff5f56f09d6e32d3dcb2642bae95bf63b5b9b05b  configure.patch

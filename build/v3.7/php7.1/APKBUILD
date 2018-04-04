@@ -3,7 +3,7 @@
 pkgname=php7.1
 _pkgreal=php
 _phpver=7.1
-pkgver=7.1.15
+pkgver=7.1.16
 pkgrel=0
 _apiver=20160303
 pkgdesc="The PHP $_phpver language runtime engine"
@@ -603,7 +603,7 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="2b23795ffcb9d741adafe8a1e01e6988bb86ce7c6380bdbe822f8f6485e217ed2e95a27daf5ba11f0bf10317f1e1f4e37068e40d0bf322de5625d38b430d37c2  php-7.1.15.tar.xz
+sha512sums="98e96f06a4912cfa6926be2f292ce7120ca893c9b779b2efef4120c1df3580fa427cd58f5e4977edb01a0ae3b85660d6ca79b2bd79b6cd830cd77f6c6588b5ea  php-7.1.16.tar.xz
 f8ecae241a90cbc3e98aa4deb3d5d35ef555f51380e29f4e182a8060dffeb84be74f030a14c6b452668471030d78964f52795ca74275db05543ccad20ef1f2cc  allow-build-recode-and-imap-together.patch
 0955b336f0847967dbc9760131bacc0238c8b5dc84c09902bae7b2ffa62a78a6d22fd95fb140286e7f8171da128ad9ff3f9e885607242573b75ad8a384353913  config.m4.patch
 e6f139fb475ca3d8478ed22471fce6fc3a7b5a3d55bc5287a3753826466d9a95545d0c7588249cdf75004ade39765b623f1468f7a742fa5993fcb3bcec5a3293  configure.patch
