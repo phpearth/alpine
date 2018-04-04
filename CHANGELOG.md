@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This projec
 * PHP 7.0.29
 * PHP 7.1.16
 * PHP 7.2.4
+* PHPUnit 7.0.3
 
 ## 2018-03-17
 
