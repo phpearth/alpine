@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-04-11
 
 * New cmark PECL extension with cmark C library dependency
+* PHPUnit 7.1.2
 
 ## 2018-04-10
 
