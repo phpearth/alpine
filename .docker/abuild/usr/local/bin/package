@@ -7,6 +7,7 @@ BUILD_PACKAGES="${1:-all}"
 
 packages_others="
 argon2
+cmark
 composer
 gnu-libiconv
 litespeed
@@ -16,6 +17,7 @@ pickle
 
 packages_70="
 php7.0-apcu
+php7.0-cmark
 php7.0-composer
 php7.0-imagick
 php7.0-memcached
@@ -31,6 +33,7 @@ php7.0-yaml
 
 packages_71="
 php7.1-apcu
+php7.1-cmark
 php7.1-composer
 php7.1-imagick
 php7.1-memcached
@@ -47,6 +50,7 @@ php7.1-yaml
 
 packages_72="
 php7.2-apcu
+php7.2-cmark
 php7.2-composer
 php7.2-imagick
 php7.2-mcrypt
