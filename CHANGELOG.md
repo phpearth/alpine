@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-04-14
+
+* PHPUnit 7.1.3
+
 ## 2018-04-13
 
 * Swoole 2.1.3
