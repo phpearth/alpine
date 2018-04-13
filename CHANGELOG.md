@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 2018-04-13
 
+* Swoole 2.1.3
 * Composer 1.6.4
 
 ## 2018-04-11
