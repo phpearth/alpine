@@ -1,6 +1,6 @@
 --- a/src/http/ntwkiolink.cpp
 +++ b/src/http/ntwkiolink.cpp
-@@ -1519,11 +1519,6 @@
+@@ -1520,11 +1520,6 @@
      return 0;
  }
  
