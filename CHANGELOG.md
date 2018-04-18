@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-04-18
+
+* Redis 4.0.1
+
 ## 2018-04-16
 
 * OpenLiteSpeed 1.5.0 RC3

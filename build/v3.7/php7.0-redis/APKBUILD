@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=4.0.0
+pkgver=4.0.1
 pkgrel=0
 _phpver=7.0
 _php=php$_phpver
@@ -56,4 +56,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="e4bf2294f696e468174c0fff9ed33831cf81c3548ce30ede01bc3c45a15cb87b9b9ea02899c451f63211be8cb37e953be138e93c16d9e0f12772b7b6d03e8dcd  redis-4.0.0.tgz"
+sha512sums="b7f7ccfcf5ac404f5fa9103c7ee2a864014e94595c3385479d8b106602b47e64beb1acb926bc2a9253d7146d4768e50bc758a2148b7e273e773779fa1bbd0cdd  redis-4.0.1.tgz"
