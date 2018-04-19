@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-04-19
+
+* PHPUnit 7.1.4
+
 ## 2018-04-18
 
 * Redis 4.0.1
