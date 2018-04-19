@@ -61,6 +61,8 @@ php7.2-xdebug
 php7.2-yaml
 "
 
+all="$packages_others $packages_70 $packages_71 $packages_72"
+
 # To build PHP Pecl extensions and some packages, we'll need some deps from the
 # local PHP.earth Alpine repository
 mkdir -p /public/v3.7/x86_64
@@ -74,7 +76,7 @@ elif [ "$BUILD_PACKAGES" = "7.1" ]; then
 elif [ "$BUILD_PACKAGES" = "7.2" ]; then
   packages=$packages_72
 elif [ "$BUILD_PACKAGES" = "all" ]; then
-  packages="$packages_others $packages_70 $packages_71 $packages_72"
+  packages=$all
 else
   packages="$BUILD_PACKAGES"
 fi
@@ -83,8 +85,20 @@ for package in $packages; do
   cd /build/v3.7/$package
   rm -rf src pkg tmp
 
+  # List old packages
+  for currentPackage in $all; do
+    if [ "$package" = "$currentPackage" ]; then
+      files="$files "`ls "/public/v3.7/x86_64/"$package*`
+    fi
+  done
+
   abuild checksum
   abuild -r -K
+
+  # Remove old packages
+  for file in $files; do
+    rm -f $file
+  done
 
   # Generate index with trusted signature
   generate-index v3.7
