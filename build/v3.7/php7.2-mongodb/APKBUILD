@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.4.2
+pkgver=1.4.3
 # Package release number is started at 100 so it overwrites the official package
 pkgrel=100
 _phpver=7.2
@@ -58,4 +58,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="ee40c76194ff47407eb14aa7677fe090fe71fed953afd36b68661f7ab67315cb105b485a49f6b1d00a97c1829afb9a4f605463d8d310f7f9263bf90f4bba1bb6  mongodb-1.4.2.tgz"
+sha512sums="60a8c5ba76f200c0504126eeefb092061def3dd9add6fc002ebf762923edd09479da1413ee417c72da6f1a4317895608b4cfe431e5e6546292bedbfd5bdf990b  mongodb-1.4.3.tgz"

@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This projec
 
 * PHPUnit 7.1.4
 * Pickle removed
+* MongoDB 1.4.3
 
 ## 2018-04-18
 
