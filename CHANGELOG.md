@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-04-19
 
 * PHPUnit 7.1.4
+* Pickle removed
 
 ## 2018-04-18
 
