@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.0.1
+pkgver=1.1.0
 pkgrel=0
 _phpver=7.1
 _php=php$_phpver
@@ -55,4 +55,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="f80e93bd886e996d69c84ed17d5100a4df8692cf477bcb4a7fd5ce3e7767cbd12c537a7f6af98fa6d1649b198077c0db672b51a8f2739514eba4f1ed94c7e85c  cmark-1.0.1.tgz"
+sha512sums="8be54b0fd03f73287e240be569ee9d8d1ffd7c88a0f6e0315b29af16771b6452359a37e8ec2f79b4a10ace59d09d8a5f74be4a99bde4e9c1397a6bddcdbe83d3  cmark-1.1.0.tgz"
