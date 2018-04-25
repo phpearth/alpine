@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=4.0.1
+pkgver=4.0.2
 # Package release number is started at 100 so it overwrites the official package
 pkgrel=100
 _phpver=7.2
@@ -59,4 +59,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="b7f7ccfcf5ac404f5fa9103c7ee2a864014e94595c3385479d8b106602b47e64beb1acb926bc2a9253d7146d4768e50bc758a2148b7e273e773779fa1bbd0cdd  redis-4.0.1.tgz"
+sha512sums="3b296926ddd6a69a4d633da8bf6257c9b2962dffb4dd38c20eaf821a8c64262b476a7fb10ab4412ceb2d1307aef26c3d1d4b72141d29dab262d521a08df13a6a  redis-4.0.2.tgz"
