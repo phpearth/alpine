@@ -1,6 +1,6 @@
 --- a/configure
 +++ b/configure
-@@ -40578,8 +40578,14 @@
+@@ -40611,8 +40611,14 @@
  /* end confdefs.h.  */
  
  #include <$PHP_ICONV_H_PATH>
