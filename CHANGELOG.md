@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-05-08
 
 * Move repository location to github.com/phpearth and update outdated repo info
+* PECL libsodium extension 2.0.11 for PHP 7.0 and PHP 7.1
+* PHPUnit 7.1.5
+* Composer 1.6.5
 
 ## 2018-04-27
 
