@@ -4,7 +4,7 @@ This repository includes the latest PHP versions and packages for the elegant PH
 development experience on [Alpine Linux](https://alpinelinux.org/).
 
 <div align="center">
-  <img src="https://cdn.rawgit.com/php-earth/logo/master/svg/indigo.svg" width="300">
+  <img src="https://cdn.rawgit.com/phpearth/logo/master/svg/indigo.svg" width="300">
 </div>
 
 ## Quick usage
@@ -35,4 +35,4 @@ Detailed documentation is available at [PHP.earth](https://php.earth/docs/linux/
 
 Contributions are most welcome. Just fork and send pull request or open an issue.
 This repository is licensed under the
-[MIT license](https://github.com/php-earth/alpine/blob/master/LICENSE).
+[MIT license](https://github.com/phpearth/alpine/blob/master/LICENSE).

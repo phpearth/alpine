@@ -62,11 +62,7 @@ version (e.g. 1.x.y) is released by the following release process:
   Create an entry in [CHANGELOG.md](CHANGELOG.md) describing all the changes from
   previous release.
 
-* **3. Tag a new release**
+* **3. Rebuild PHP.earth Docker images**
 
-  Tag a new version on [GitHub](https://github.com/php-earth/alpine/releases).
-
-* **4. Rebuild PHP.earth Docker images**
-
-  With each change rebuild also [PHP.earth Docker images](https://github.com/php-earth/docker-php)
+  With each change rebuild also [PHP.earth Docker images](https://github.com/phpearth/docker-php)
   respectively.

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-05-08
+
+* Move repository location to github.com/phpearth and update outdated repo info
+
 ## 2018-04-27
 
 * PHP 7.2.5
@@ -178,4 +182,4 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 2017-10-13
 
-* Alpine PHP.earth packages added from the php-earth/docker-php repository
+* Alpine PHP.earth packages added from the docker-php repository
