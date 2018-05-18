@@ -4,7 +4,7 @@ pkgname=php7.1
 _pkgreal=php
 _phpver=7.1
 pkgver=7.1.17
-pkgrel=0
+pkgrel=1
 _apiver=20160303
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -464,9 +464,9 @@ fpm() {
   done
 
   # Fix FPM versions in configuration files
-  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php\/php-fpm7\.1\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.1\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
   sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.1\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php\/php-fpm7\.1\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
+  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.1\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.owner \= www-data/listen\.owner \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.group \= www-data/listen\.group \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
 
@@ -613,6 +613,6 @@ cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
 8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
 16e89446e3ef1d8da82efcbf8c79155c3a8d25494051c53bab88ef578f88918860a55214c91defe34ab2e3a45b23c3d068172a4d878aaf6e3dd58e78734ee059  pecl.sh
-bdfc4a1caaadd49151cda5af6b011e17f5404927d427a51826415c15f839b6d65f8dc5532ad346be2da349de407db127c1203de432fb487b8a3ee79ac42106a0  php-fpm.initd
+4cb9d4d5ea8b1eb65be9c3b59c34577c0713cf5d60d7053a410bacc8df36e685e881b4e7623539201aea05e7dd7314d6f0063c2437cf34b7467033f254b669c6  php-fpm.initd
 0ebb6f6ffa2ed613b966d88161e8cc46633ee18b3a399f05de4782ebe8aacc5206ce1259f8ea873fbb3df11c7c68728670695ef35e4696a5b00d0c2bbd597b80  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf"

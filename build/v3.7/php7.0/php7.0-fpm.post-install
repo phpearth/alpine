@@ -8,5 +8,5 @@ link=$(readlink /usr/sbin/php-fpm)
 
 if [[ "$link" != "/usr/sbin/php-fpm7.1" && "$link" != "/usr/sbin/php-fpm7.2" ]] || [[ ! -f "$link" ]]; then
   ln -sf /usr/sbin/php-fpm$_suffix /usr/sbin/php-fpm
-  ln -sf /run/php/php-fpm$_suffix.sock /run/php/php-fpm.sock
+  ln -sf /run/php-fpm$_suffix/php-fpm.sock /run/php/php-fpm.sock
 fi

@@ -4,7 +4,7 @@ pkgname=php7.0
 _pkgreal=php
 _phpver=7.0
 pkgver=7.0.30
-pkgrel=0
+pkgrel=1
 _apiver=20151012
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -466,9 +466,9 @@ fpm() {
   done
 
   # Fix FPM versions in configuration files
-  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php\/php-fpm7\.0\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.0\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
   sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.0\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php\/php-fpm7\.0\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
+  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.0\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.owner \= www-data/listen\.owner \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.group \= www-data/listen\.group \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
 
@@ -614,7 +614,7 @@ sha512sums="1f0914ebda79247aa65ace63f6c8c4fcd850b21a82704f7b6482760259239cc5fee4
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
 8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
 ea05e681c952ce72d7661b9097c8a994e4e52de8155fe2ef6350d034f52a243c27f73b9b9faf7d056237737d8049047d4e985644169f71eaa596d80d4e25204e  pecl.sh
-f20c5dfa88bcbca2adf10a792ea420edb26c3d7e3428b4e49f07a6e5b9ae52a8270b6087b46899036dc86ba1962c92b535be56f31a6a9c341f73cded67698cab  php-fpm.initd
+62135bbe57290259ab55c00279c4e369d3bfe80e91bef5c2dfcbe596f50ceba28f4ce13488e0cd614cb54cec1c50815352964a2bf194f6f3b3efd5071b1515b5  php-fpm.initd
 3a8fa61867526355ba0278b83f01a104a591c46dba4b96d600f5b66bebee30e6aa18b579dbee371f87166a2c9dff3ba7cc5faf2f836dfc91fa5a94970e535fec  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf
 6894c9cba7752a3406e774d9efc0e058c37433493c1c20101e9563bf247c112157a67e306b06b9517b0422eca521f543d637a6cbd2cea7639e43f13d773b3d2b  tidy-buffio.patch"

@@ -5,7 +5,7 @@ _pkgreal=php
 _phpver=7.2
 pkgver=7.2.5
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=101
 _apiver=20170718
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -476,9 +476,9 @@ fpm() {
   done
 
   # Fix FPM versions in configuration files
-  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php\/php-fpm7\.2\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.2\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
   sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.2\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php\/php-fpm7\.2\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
+  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.2\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.owner \= www-data/listen\.owner \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.group \= www-data/listen\.group \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
 
@@ -628,7 +628,7 @@ cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
 8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
 aeea2889de5413739b17fa37de2a0def5fbc6176d51df6e0a41ce14c0b56ba040d7637e98dcbe35d9636ceeb9a22a9145430cacaf78662cce0389a3416d09479  pecl.sh
-0dde6dfaa9e03a4c84be7ba3df4321c983f4ae60b1919f29285c47db3b580bc938a2bde83c183db2460f4caf6c16261849a0a7a05d1b0b15096b4984ae16371e  php-fpm.initd
+2c8bb9c01ed0600fb2ed358737151232572a9dcb648cfe0545a36710a6086147d6710079c9caa2d321ccaa0fe5a6c10e5eecd09a6e9d861e84b43254cff793d5  php-fpm.initd
 618e8dc8b24fb517c04644bf245f7731f75c2a5a37f9c661ca093373ffcb49fdeb246774be7a1d9e8c947bcb1efbd065866f2d33da0d7750bf029db6233a8f53  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf
 064db21b1073b5a03aaf547c773ebc096bcfa2bbb39f6c4e8ebff1002dbfa37e8ccb5712e21e0d9b300034f43c3501d13d75cefccb00473c844bb5449e7866dc  run-tests.php.patch"
