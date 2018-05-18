@@ -5,7 +5,7 @@ _pkgreal=php
 _phpver=7.2
 pkgver=7.2.5
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=101
+pkgrel=102
 _apiver=20170718
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"

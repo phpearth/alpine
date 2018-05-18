@@ -2,7 +2,7 @@
 
 _suffix="7.1"
 
-mkdir -p /run/php
+mkdir -p /run/php /run/php-fpm$_suffix
 
 link=$(readlink /usr/sbin/php-fpm)
 
