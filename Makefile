@@ -14,7 +14,7 @@ run: ## Run a command in a new Docker container; make run a=[...]
   @docker container run -it --rm -v `pwd`/build:/build -v `pwd`/public:/public phpearth-abuild $(a)
 
 package: ## Usage: make package [p="7.0|7.1|7.2|all|<package-name1> <package-name2> ..."]
-  @test $(p)
+  @test "$(p)"
   make run a="package $(p)"
 
 generate-index: ## Generate index file APKINDEX.tar.gz usage: make generate-index
@@ -24,7 +24,7 @@ private-key: ## Generate new private key
   make run a="openssl genrsa -out phpearth.rsa.priv 4096 --build --force-recreate"
 
 public-key: ## Generate new public key
-  make run a="openssl rsa -in phpearth.rsa.priv -pubout -out /public/phpearth.rsa.pub"
+  make run a="openssl rsa -in /home/packager/.abuild/phpearth.rsa.priv -pubout -out /public/phpearth.rsa.pub"
 
 clean: ## Remove pkg, src, tmp and log folders when building packages for Alpine
   @rm -rf build/v3.7/*/pkg build/v3.7/*/src build/v3.7/*/tmp log/*
