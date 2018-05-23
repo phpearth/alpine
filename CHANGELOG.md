@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-05-23
+
+* Swoole 2.2.0
+
 ## 2018-05-18
 
 * PHP FPM bug #2 fixed: Wrong location of pid and sock files
