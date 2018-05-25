@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-05-25
 
 * PHP 7.2.6
+* New PECL ds extension - An extension providing efficient data structures for
+  PHP
 
 ## 2018-05-23
 
