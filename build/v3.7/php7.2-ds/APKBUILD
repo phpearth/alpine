@@ -2,7 +2,7 @@
 
 pkgver=1.2.6
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=101
 _phpver=7.2
 _php=php$_phpver
 _pkgreal=ds
@@ -11,7 +11,7 @@ pkgdesc="PHP $_phpver data structures extension"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="MIT"
-depends="$_php-common"
+depends="$_php-common $_php-json"
 makedepends="$_php-dev coreutils"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"

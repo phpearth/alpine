@@ -1,7 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=1.2.6
-pkgrel=0
+pkgrel=1
 _phpver=7.1
 _php=php$_phpver
 _pkgreal=ds
@@ -10,7 +10,7 @@ pkgdesc="PHP $_phpver data structures extension"
 url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="MIT"
-depends="$_php-common"
+depends="$_php-common $_php-json"
 makedepends="$_php-dev coreutils"
 source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
