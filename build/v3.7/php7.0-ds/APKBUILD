@@ -1,7 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=1.2.6
-pkgrel=1
+pkgrel=2
 _phpver=7.0
 _php=php$_phpver
 _pkgreal=ds
@@ -11,12 +11,11 @@ url="http://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="MIT"
 depends="$_php-common $_php-json"
-makedepends="$_php-dev coreutils"
-source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
-builddir="$srcdir/$_pkgreal-$pkgver"
+makedepends="$_php-dev composer $_php-dom $_php-tokenizer valgrind"
+source="$_pkgreal-$pkgver.tar.gz::https://github.com/php-ds/extension/archive/v$pkgver.tar.gz"
+builddir="$srcdir/extension-$pkgver"
 provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
 replaces="php-$_pkgreal php7-$_pkgreal"
-options="!check"
 
 prepare() {
   default_prepare
@@ -43,12 +42,12 @@ build() {
 check() {
   cd "$builddir"
 
+  composer install
+
   local allow_fail='yes'
 
-  NO_INTERACTION=1 REPORT_EXIT_STATUS=1 \
-    SKIP_SLOW_TESTS=1 SKIP_ONLINE_TESTS=1 TEST_TIMEOUT=10 \
-    TZ= LANG= LC_ALL= \
-    make test || [ "$allow_fail" = yes ]
+  php -d extension=modules/ds.so test.php || [ "$allow_fail" = yes ]
+  USE_ZEND_ALLOC=0 ZEND_DONT_UNLOAD_MODULES=1 valgrind php -d extension=modules/ds.so test.php || [ "$allow_fail" = yes ]
 }
 
 package() {
@@ -58,4 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="265512cc37b808b40b5bad98f8ef4f30fea2c495dda4ddf05877d420abdae8dec38c2e37ec7429f98bc1e175495efa9cdcda5e05aa0ba18240f72544021870ea  ds-1.2.6.tgz"
+sha512sums="e2bcc9e2577bdf68cd27855c38cc752492b7ec91bd203fc46718052b73056024b9f17b0e8877a7d93a0a2c7f1f3da3444212ca5f67f6d3d3ccb427804df6eeae  ds-1.2.6.tar.gz"
