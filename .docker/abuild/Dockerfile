@@ -15,7 +15,7 @@ RUN apk add --no-cache alpine-sdk \
     && curl https://raw.githubusercontent.com/php/php-src/PHP-7.1/php.ini-development --output /etc/php/7.1/php.ini \
     && curl https://raw.githubusercontent.com/php/php-src/PHP-7.2/php.ini-development --output /etc/php/7.2/php.ini
 
-COPY . /
+COPY --chown=packager:abuild . /
 
 USER packager
 
