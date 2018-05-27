@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Script for building and packaging
-# Usage package [7.0|7.1|7.2|all|{package-name}]
+# Usage package [7.0|7.1|7.2|7.3|all|{package-name}]
 
 BUILD_PACKAGES="${1:-all}"
 
@@ -64,7 +64,24 @@ php7.2-xdebug
 php7.2-yaml
 "
 
-all="$packages_others $packages_70 $packages_71 $packages_72"
+packages_73="
+php7.3-apcu
+php7.3-cmark
+php7.3-composer
+php7.3-ds
+php7.3-imagick
+php7.3-mcrypt
+php7.3-memcached
+php7.3-meminfo
+php7.3-mongodb
+php7.3-phpunit
+php7.3-redis
+php7.3-swoole
+php7.3-xdebug
+php7.3-yaml
+"
+
+all="$packages_others $packages_70 $packages_71 $packages_72 $packages_73"
 
 # To build PHP Pecl extensions and some packages, we'll need some deps from the
 # local PHP.earth Alpine repository
@@ -78,6 +95,8 @@ elif [ "$BUILD_PACKAGES" = "7.1" ]; then
   packages=$packages_71
 elif [ "$BUILD_PACKAGES" = "7.2" ]; then
   packages=$packages_72
+elif [ "$BUILD_PACKAGES" = "7.3" ]; then
+  packages=$packages_73
 elif [ "$BUILD_PACKAGES" = "all" ]; then
   packages=$all
 else
