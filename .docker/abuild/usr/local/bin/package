@@ -16,6 +16,7 @@ phpunit
 
 packages_70="
 php7.0-apcu
+php7.0-ast
 php7.0-cmark
 php7.0-composer
 php7.0-ds
@@ -32,6 +33,7 @@ php7.0-yaml
 
 packages_71="
 php7.1-apcu
+php7.1-ast
 php7.1-cmark
 php7.1-composer
 php7.1-ds
@@ -49,6 +51,7 @@ php7.1-yaml
 
 packages_72="
 php7.2-apcu
+php7.2-ast
 php7.2-cmark
 php7.2-composer
 php7.2-ds
@@ -66,6 +69,7 @@ php7.2-yaml
 
 packages_73="
 php7.3-apcu
+php7.3-ast
 php7.3-cmark
 php7.3-composer
 php7.3-ds
