@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-06-10
+
+* PHPUnit 7.2.4
+
 ## 2018-06-07
 
 * MongoDB 1.4.4
