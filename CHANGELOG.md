@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-06-21
+
+* PHP 7.3.0 alpha 2
+
 ## 2018-06-10
 
 * PHPUnit 7.2.4

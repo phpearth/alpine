@@ -1,0 +1,14 @@
+--- a/build/ax_gcc_func_attribute.m4
++++ b/build/ax_gcc_func_attribute.m4
+@@ -149,11 +149,6 @@
+                 [hot], [
+                     int foo( void ) __attribute__(($1));
+                 ],
+-                [ifunc], [
+-                    int my_foo( void ) { return 0; }
+-                    static int (*resolve_foo(void))(void) { return my_foo; }
+-                    int foo( void ) __attribute__(($1("resolve_foo")));
+-                ],
+                 [leaf], [
+                     __attribute__(($1)) int foo( void ) { return 0; }
+                 ],
