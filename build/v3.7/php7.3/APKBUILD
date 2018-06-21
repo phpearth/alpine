@@ -6,7 +6,7 @@ _phpver=7.3
 pkgver=7.3.0
 _pkgrealver=7.3.0alpha2
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=101
 _apiver=20180606
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -71,7 +71,9 @@ makedepends="
 
 source="https://downloads.php.net/~cmb/php-$_pkgrealver.tar.xz
   ax_gcc_func_attribute.m4.patch
+  config.m4.patch
   config9.m4.patch
+  configure.patch
   disabled-tests.list
   iconv.c.patch
   install-pear.patch
@@ -477,9 +479,9 @@ fpm() {
   done
 
   # Fix FPM versions in configuration files
-  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.2\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.2\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.2\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
+  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.3\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.3\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.3\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.owner \= www-data/listen\.owner \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.group \= www-data/listen\.group \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
 
@@ -622,7 +624,9 @@ _mv() {
 }
 sha512sums="d8950eb431159b2120270320f8699715a5d4973248f4b0492e175515b3fca3fdae715507644ff55462049f73ea0137d8d687d2533013c2a627580a19c7ba758c  php-7.3.0alpha2.tar.xz
 8d31b73baf140f78989b18f23bdc0e82143f1d4ec9e065f861320a6999ef8435b159cf866596457645f1efe7bc82eb48f1502fec40d40195d245bc520c8ed286  ax_gcc_func_attribute.m4.patch
+0955b336f0847967dbc9760131bacc0238c8b5dc84c09902bae7b2ffa62a78a6d22fd95fb140286e7f8171da128ad9ff3f9e885607242573b75ad8a384353913  config.m4.patch
 1ff2a0a98fadd90b32dd1f8e94b4102ff6b713ee3e6687821b063ff2a7eabea42b963bc88db5668a1dfd7269e62b65f96a1530c3da16992840fc92686a7aa4f4  config9.m4.patch
+51c56965a554880105ce7227488c66cf1c81c1ee86c1dc9dfc8ccc0433739f4c6f8a3da943a09ba0635cb7596b92d0ed39f8d14250878ea40cad6bb21337e21e  configure.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list
 724a77f756b24dc199f5932827f28023c23b2f8487b6f31a53527b628a53c77a5a3d6c40a9b8b0fb35fd585a4b5ba16212c7f4249bc702101f089ae3c0c027e3  iconv.c.patch
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
