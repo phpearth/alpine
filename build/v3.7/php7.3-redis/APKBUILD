@@ -1,0 +1,62 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=4.0.2
+# Package release number is started at 100 so it overwrites the official package
+pkgrel=100
+_phpver=7.3
+_php=php$_phpver
+_pkgreal=redis
+pkgname=$_php-$_pkgreal
+pkgdesc="PHP $_phpver extension for interfacing with Redis"
+url="http://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="PHP-3"
+depends="$_php-common $_php-session"
+makedepends="$_php-dev coreutils"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
+replaces="php-$_pkgreal php7-$_pkgreal"
+options="!check"
+
+prepare() {
+  default_prepare
+}
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"
+
+  phpize
+
+  EXTENSION_DIR=/usr/lib/php/$_phpver/modules \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
+    --prefix=/usr \
+    --with-php-config=/usr/bin/php-config
+
+  make -j$jobs
+}
+
+check() {
+  cd "$builddir"
+
+  local allow_fail='no'
+
+  NO_INTERACTION=1 REPORT_EXIT_STATUS=1 \
+    SKIP_SLOW_TESTS=1 SKIP_ONLINE_TESTS=1 TEST_TIMEOUT=10 \
+    TZ= LANG= LC_ALL= \
+    make test || [ "$allow_fail" = yes ]
+}
+
+package() {
+  mkdir -p "$pkgdir"
+  install -d $pkgdir/
+  make -C "$builddir" INSTALL_ROOT="$pkgdir" install
+  install -d "$pkgdir"/etc/php/$_phpver/conf.d
+  echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
+}
+sha512sums="3b296926ddd6a69a4d633da8bf6257c9b2962dffb4dd38c20eaf821a8c64262b476a7fb10ab4412ceb2d1307aef26c3d1d4b72141d29dab262d521a08df13a6a  redis-4.0.2.tgz"

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-06-23
+
+* PECL extensions for the PHP 7.3 branch
+
 ## 2018-06-22
 
 * PHP 7.3.0 alpha 2
