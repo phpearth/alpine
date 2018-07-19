@@ -1,6 +1,6 @@
 --- a/src/sslpp/sslutil.cpp
 +++ b/src/sslpp/sslutil.cpp
-@@ -850,7 +850,16 @@
+@@ -904,7 +904,16 @@
  {
      int ret = -1;
      BIO *pOut = BIO_new(BIO_s_mem());
@@ -18,7 +18,7 @@
  
      if (PEM_write_bio_PrivateKey(pOut, pKey, NULL, NULL, 0, NULL, NULL))
          ret = bioToBuf(pOut, pBuf);
-@@ -862,7 +871,16 @@
+@@ -916,7 +925,16 @@
  {
      int ret = -1;
      BIO *pOut = BIO_new(BIO_s_mem());
