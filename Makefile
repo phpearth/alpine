@@ -26,8 +26,8 @@ private-key: ## Generate new private key
 public-key: ## Generate new public key
   make run a="openssl rsa -in /home/packager/.abuild/phpearth.rsa.priv -pubout -out /public/phpearth.rsa.pub"
 
-clean: ## Remove pkg, src, tmp and log folders when building packages for Alpine
-  @rm -rf packages/*/pkg packages/*/src packages/*/tmp log/*
+clean: ## Remove pkg, src, and tmp folders when building packages for Alpine
+  @rm -rf packages/*/pkg packages/*/src packages/*/tmp
 
 sh: ## Run shell
   make run a=sh

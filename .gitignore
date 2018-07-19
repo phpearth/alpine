@@ -5,5 +5,3 @@
 /packages/*/src
 /packages/*/tmp
 /.docker/abuild/home/packager/.abuild/phpearth.rsa.priv
-/log/*
-!/log/.gitkeep
