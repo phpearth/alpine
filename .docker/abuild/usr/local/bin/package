@@ -109,23 +109,19 @@ fi
 
 for package in $packages; do
   cd /packages/$package
-  rm -rf src pkg tmp
 
-  # List old packages
-  for currentPackage in $all; do
-    if [ "$package" = "$currentPackage" ]; then
-      files="$files "`ls "/public/packages/x86_64/"$package*`
-    fi
-  done
+  # For PHP we also generate tmp directory for some temporary files
+  rm -rf tmp
+
+  # Clean pkgdir and srcdir
+  abuild clean
 
   abuild checksum
   abuild -r -K
 
-  # Remove old packages
-  for file in $files; do
-    rm -f $file
-  done
-
   # Generate index with trusted signature
   generate-index
+
+  # Clean packages with previous versions
+  abuild cleanoldpkg
 done
