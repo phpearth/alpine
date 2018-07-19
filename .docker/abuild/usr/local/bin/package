@@ -124,4 +124,7 @@ for package in $packages; do
 
   # Clean packages with previous versions
   abuild cleanoldpkg
+
+  # Regenerate index with trusted signature
+  generate-index
 done
