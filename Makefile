@@ -33,4 +33,4 @@ sh: ## Run shell
   make run a=sh
 
 upload: ## Upload build packages to Linux repos server
-  @rsync -avz --del public/packages repos.php.earth:~/repos/alpine/v3.7
+  @rsync -avz --del public/packages/ repos.php.earth:~/repos/alpine/v3.7/
