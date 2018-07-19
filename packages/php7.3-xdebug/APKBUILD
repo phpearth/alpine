@@ -1,8 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=2.6.0
-# Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=0
 _phpver=7.3
 _php=php$_phpver
 _pkgreal=xdebug
@@ -58,3 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
+sha512sums="e81f771478eb45cdae5814037ac1b86bcb8c5616d22dcac436482c350187c53d3cc6d54be740a49dca6d38c58c086db6e4a68eb3004a0152d6215c97512538a2  xdebug-2.6.0.tgz"

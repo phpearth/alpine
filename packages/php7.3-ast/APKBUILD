@@ -1,8 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=0.1.6
-# Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=0
 _phpver=7.3
 _php=php$_phpver
 _pkgreal=ast

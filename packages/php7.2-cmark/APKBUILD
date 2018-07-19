@@ -1,7 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=1.1.0
-pkgrel=100
+pkgrel=0
 _phpver=7.2
 _php=php$_phpver
 _pkgreal=cmark

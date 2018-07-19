@@ -1,8 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=2.0.2
-# Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=0
 _phpver=7.3
 _php=php$_phpver
 _pkgreal=yaml
@@ -58,3 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
+sha512sums="b3dd2098826cd7cdcfd1e5d97b9015de66812dc90e506e74a4a50a56afed5f9de0449465bb807a36a13170f479897cc62a9b108653aa7eb81895abd5966bde1a  yaml-2.0.2.tgz"
