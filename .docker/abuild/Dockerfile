@@ -20,4 +20,4 @@ COPY --chown=packager:abuild . /
 
 USER packager
 
-WORKDIR /build
+WORKDIR /packages
