@@ -3,7 +3,7 @@
 pkgname=gnu-libiconv
 pkgver=1.15
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=101
+pkgrel=100
 pkgdesc="GNU charset conversion library for libc which doesn't implement it"
 url="http://www.gnu.org/software/libiconv"
 arch="all"
@@ -39,10 +39,5 @@ package() {
   cd "$builddir"
   make DESTDIR="$pkgdir/" install
   rm "$pkgdir"/usr/lib/charset.alias
-
-  # move headers so they dont clash with libc headers
-  mkdir "$pkgdir"/usr/include/gnu-libiconv
-  mv "$pkgdir"/usr/include/*.h "$pkgdir"/usr/include/gnu-libiconv
-  mv "$pkgdir"/usr/bin/iconv "$pkgdir"/usr/bin/gnu-iconv
 }
 sha512sums="1233fe3ca09341b53354fd4bfe342a7589181145a1232c9919583a8c9979636855839049f3406f253a9d9829908816bb71fd6d34dd544ba290d6f04251376b1a  libiconv-1.15.tar.gz"
