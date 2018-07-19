@@ -74,7 +74,6 @@ php7.3-cmark
 php7.3-composer
 php7.3-ds
 php7.3-imagick
-php7.3-mcrypt
 php7.3-memcached
 php7.3-meminfo
 php7.3-mongodb
