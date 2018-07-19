@@ -6,7 +6,7 @@ mkdir -p /run/php /run/php-fpm$_suffix
 
 link=$(readlink /usr/sbin/php-fpm)
 
-if [[ "$link" != "/usr/sbin/php-fpm7.1" && "$link" != "/usr/sbin/php-fpm7.2" ]] || [[ ! -f "$link" ]]; then
+if [[ "$link" != "/usr/sbin/php-fpm7.1" && "$link" != "/usr/sbin/php-fpm7.2" && "$link" != "/usr/sbin/php-fpm7.3" ]] || [[ ! -f "$link" ]]; then
   ln -sf /usr/sbin/php-fpm$_suffix /usr/sbin/php-fpm
   ln -sf /run/php-fpm$_suffix/php-fpm.sock /run/php/php-fpm.sock
 fi
