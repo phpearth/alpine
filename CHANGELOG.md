@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-07-21
+
+* PHP 7.0.31
+* PHP 7.1.19
+* PHP 7.2.8
+* PHP 7.3.0 alpha 4
+* APCU 5.1.12
+* Redis 4.1.0
+* MongoDB 1.5.1
+* Swoole 4.0.2
+* PHPUnit 7.2.7
+* PECL mcrypt extension removed from PHP 7.3 and up
+* Repository refactored as a preparation for Alpine 3.8
+
 ## 2018-06-23
 
 * PECL extensions for the PHP 7.3 branch
