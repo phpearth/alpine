@@ -2,4 +2,8 @@
 
 _suffix="7.2"
 
-ln -sf /usr/bin/phpdbg$_suffix /usr/bin/phpdbg
+link=$(readlink /usr/bin/phpdbg)
+
+if [[ "$link" != "/usr/bin/phpdbg7.3" ]]; then
+  ln -sf /usr/bin/phpdbg$_suffix /usr/bin/phpdbg
+fi

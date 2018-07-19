@@ -2,6 +2,20 @@
 
 _suffix="7.2"
 
-ln -sf /usr/bin/pecl$_suffix /usr/bin/pecl
-ln -sf /usr/bin/pear$_suffix /usr/bin/pear
-ln -sf /usr/bin/peardev$_suffix /usr/bin/peardev
+link=$(readlink /usr/bin/pecl)
+
+if [[ "$link" != "/usr/bin/pecl7.3" ]]; then
+  ln -sf /usr/bin/pecl$_suffix /usr/bin/pecl
+fi
+
+link=$(readlink /usr/bin/pear)
+
+if [[ "$link" != "/usr/bin/pear7.3" ]]; then
+  ln -sf /usr/bin/pear$_suffix /usr/bin/pear
+fi
+
+link=$(readlink /usr/bin/peardev)
+
+if [[ "$link" != "/usr/bin/peardev7.3" ]]; then
+  ln -sf /usr/bin/peardev$_suffix /usr/bin/peardev
+fi

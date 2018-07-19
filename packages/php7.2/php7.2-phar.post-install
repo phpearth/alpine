@@ -2,5 +2,14 @@
 
 _suffix="7.2"
 
-ln -sf /usr/bin/phar.phar$_suffix /usr/bin/phar.phar
-ln -sf /usr/bin/phar.phar$_suffix /usr/bin/phar
+link=$(readlink /usr/bin/phar.phar)
+
+if [[ "$link" != "/usr/bin/phar.phar7.3" ]]; then
+  ln -sf /usr/bin/phar.phar$_suffix /usr/bin/phar.phar
+fi
+
+link=$(readlink /usr/bin/phar)
+
+if [[ "$link" != "/usr/bin/phar.phar7.3" ]]; then
+  ln -sf /usr/bin/phar.phar$_suffix /usr/bin/phar
+fi

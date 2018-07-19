@@ -2,4 +2,8 @@
 
 _suffix="7.2"
 
-ln -sf /usr/bin/php-cgi$_suffix /usr/bin/php-cgi
+link=$(readlink /usr/bin/php-cgi)
+
+if [[ "$link" != "/usr/bin/php-cgi7.3" ]]; then
+  ln -sf /usr/bin/php-cgi$_suffix /usr/bin/php-cgi
+fi
