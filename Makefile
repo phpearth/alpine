@@ -11,7 +11,7 @@ build: ## Build necessary Docker image for building packages
 
 run: ## Run a command in a new Docker container; make run a=[...]
   make build
-  @docker container run -it --rm -v `pwd`/build:/build -v `pwd`/public:/public phpearth-abuild $(a)
+  @docker container run -it --rm -v `pwd`/packages:/packages -v `pwd`/public:/public phpearth-abuild $(a)
 
 package: ## Usage: make package [p="7.0|7.1|7.2|7.3|all|<package-name1> <package-name2> ..."]
   @test "$(p)"
@@ -27,10 +27,10 @@ public-key: ## Generate new public key
   make run a="openssl rsa -in /home/packager/.abuild/phpearth.rsa.priv -pubout -out /public/phpearth.rsa.pub"
 
 clean: ## Remove pkg, src, tmp and log folders when building packages for Alpine
-  @rm -rf build/v3.7/*/pkg build/v3.7/*/src build/v3.7/*/tmp log/*
+  @rm -rf packages/*/pkg packages/*/src packages/*/tmp log/*
 
 sh: ## Run shell
   make run a=sh
 
 upload: ## Upload build packages to Linux repos server
-  @rsync -avz --del public/ repos.php.earth:~/repos/alpine/
+  @rsync -avz --del public/packages repos.php.earth:~/repos/alpine/v3.7

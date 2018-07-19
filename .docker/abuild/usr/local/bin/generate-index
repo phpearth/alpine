@@ -1,11 +1,9 @@
 #!/bin/sh
 
 # Generate index file APKINDEX.tar.gz
-# Usage generate-index [repository]
+# Usage generate-index
 
-REPO="${1:-v3.7}"
-
-cd /public/$REPO/x86_64
+cd /public/packages/x86_64
 apk index -o APKINDEX.unsigned.tar.gz *.apk --rewrite-arch x86_64
 openssl dgst -sha1 -sign /home/packager/.abuild/phpearth.rsa.priv -out .SIGN.RSA.phpearth.rsa.pub APKINDEX.unsigned.tar.gz
 tar -c .SIGN.RSA.phpearth.rsa.pub | abuild-tar --cut | gzip -9 > signature.tar.gz

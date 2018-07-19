@@ -89,8 +89,8 @@ all="$packages_others $packages_70 $packages_71 $packages_72 $packages_73"
 
 # To build PHP Pecl extensions and some packages, we'll need some deps from the
 # local PHP.earth Alpine repository
-mkdir -p /public/v3.7/x86_64
-abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /public/v3.7/x86_64/APKINDEX.tar.gz
+mkdir -p /public/packages/x86_64
+abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /public/packages/x86_64/APKINDEX.tar.gz
 sudo apk update
 
 if [ "$BUILD_PACKAGES" = "7.0" ]; then
@@ -108,13 +108,13 @@ else
 fi
 
 for package in $packages; do
-  cd /build/v3.7/$package
+  cd /packages/$package
   rm -rf src pkg tmp
 
   # List old packages
   for currentPackage in $all; do
     if [ "$package" = "$currentPackage" ]; then
-      files="$files "`ls "/public/v3.7/x86_64/"$package*`
+      files="$files "`ls "/public/packages/x86_64/"$package*`
     fi
   done
 
@@ -127,5 +127,5 @@ for package in $packages; do
   done
 
   # Generate index with trusted signature
-  generate-index v3.7
+  generate-index
 done

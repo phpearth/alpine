@@ -1,9 +1,9 @@
 /public/*
 !/public
 !/public/phpearth.rsa.pub
-/build/*/*/pkg
-/build/*/*/src
-/build/*/*/tmp
+/packages/*/pkg
+/packages/*/src
+/packages/*/tmp
 /.docker/abuild/home/packager/.abuild/phpearth.rsa.priv
 /log/*
 !/log/.gitkeep
