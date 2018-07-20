@@ -3,7 +3,7 @@
 .PHONY: *
 
 # Alpine distribution verion
-version = 3.7
+version = 3.8
 
 help:
   @echo "\033[33mUsage:\033[0m\n  make [target] [arg=\"val\"...]\n\n\033[33mTargets:\033[0m"
