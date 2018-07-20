@@ -1,6 +1,6 @@
 --- a/src/sslpp/sslcontext.cpp
 +++ b/src/sslpp/sslcontext.cpp
-@@ -621,7 +621,9 @@
+@@ -652,7 +652,9 @@
  int SslContext::initSNI(void *param)
  {
  #ifdef SSL_TLSEXT_ERR_OK
@@ -11,7 +11,7 @@
  
      return 0;
  #else
-@@ -729,7 +731,7 @@
+@@ -768,7 +770,7 @@
  #ifdef TLSEXT_TYPE_application_layer_protocol_negotiation
      SSL_CTX_set_alpn_select_cb(m_pCtx, SSLConntext_alpn_select_cb, this);
  #endif
