@@ -16,7 +16,7 @@ run: ## Run a command in a new Docker container; make run a=[...]
   make build
   @docker container run -it --rm -v `pwd`/packages:/packages -v `pwd`/public:/public phpearth-abuild:$(version) $(a)
 
-package: ## Usage: make package [p="7.0|7.1|7.2|7.3|all|<package-name1> <package-name2> ..."]
+package: ## Usage: make package [p="7.1|7.2|7.3|all|<package-name1> <package-name2> ..."]
   @test "$(p)"
   make run a="package $(p)"
 
