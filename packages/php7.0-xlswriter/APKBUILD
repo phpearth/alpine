@@ -1,0 +1,43 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=1.2.2
+pkgrel=0
+_phpver=7.0
+_php=php$_phpver
+_pkgreal=xlswriter
+pkgname=$_php-$_pkgreal
+pkgdesc="An efficient and fast xlsx file export extension for PHP $_phpver"
+url="https://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="BSD-3-Clause"
+depends="$_php-common libxlsxwriter zlib"
+makedepends="$_php-dev coreutils libxlsxwriter-dev zlib-dev"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"
+
+  phpize
+
+  ./configure --prefix=/usr \
+    --with-php-config=/usr/bin/php-config
+
+  make -j$jobs
+}
+
+check() {
+  cd "$builddir"
+
+  make NO_INTERACTION=1 REPORT_EXIT_STATUS=1 test
+}
+
+package() {
+  cd "$builddir"
+  make INSTALL_ROOT="$pkgdir/" install
+  install -d "$pkgdir"/etc/php/$_phpver/conf.d
+  echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
+}
+sha512sums="d4c52c4a233196693c053b4770b797c4077086ae07a72f392979764fea92bc5ab7d733e7215b9fd3d7264ca751c2ec68387fb5a4c19f706b5ad485aaceec38ba  xlswriter-1.2.2.tgz"

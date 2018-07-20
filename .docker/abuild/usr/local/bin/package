@@ -10,6 +10,7 @@ argon2
 cmark
 composer
 gnu-libiconv
+libxlsxwriter
 litespeed
 phpunit
 "
@@ -28,6 +29,7 @@ php7.0-redis
 php7.0-sodium
 php7.0-swoole
 php7.0-xdebug
+php7.0-xlswriter
 php7.0-yaml
 "
 
@@ -46,6 +48,7 @@ php7.1-redis
 php7.1-sodium
 php7.1-swoole
 php7.1-xdebug
+php7.1-xlswriter
 php7.1-yaml
 "
 
@@ -64,6 +67,7 @@ php7.2-phpunit
 php7.2-redis
 php7.2-swoole
 php7.2-xdebug
+php7.2-xlswriter
 php7.2-yaml
 "
 
@@ -81,6 +85,7 @@ php7.3-phpunit
 php7.3-redis
 php7.3-swoole
 php7.3-xdebug
+php7.3-xlswriter
 php7.3-yaml
 "
 
