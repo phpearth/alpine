@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file. This projec
 * Repository refactored as a preparation for Alpine 3.8
 * New PECL extension [xlswriter](https://pecl.php.net/package/xlswriter)
 * PHP 7.1.20
+* Swoole 4.0.3
 
 ## 2018-06-23
 
