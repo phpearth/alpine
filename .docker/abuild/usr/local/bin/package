@@ -6,8 +6,6 @@
 BUILD_PACKAGES="${1:-all}"
 
 packages_others="
-argon2
-cmark
 composer
 gnu-libiconv
 libxlsxwriter
