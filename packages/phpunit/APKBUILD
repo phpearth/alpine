@@ -15,4 +15,4 @@ options="!check"
 package() {
   install -m 0755 -D "$srcdir"/$pkgname-$pkgver.phar "$pkgdir"/usr/bin/$pkgname
 }
-sha512sums="f56dfc3545b41e84458d25e915540c5bbd7432a1db9970d5425c8cc55c34f11b971f88019e51ded23d144f99194c333270cc674fcad5cfe736b65ed2239b5a45  phpunit-7.2.4.phar"
+sha512sums="172692997cc4208c7a1535190bfc60ad3058fdc049d823b8bd3f1afd6ccb5049bf43bc0590fd429f91bdadbd74f9f78e6842ec3e95c201f0a59ecd613946a688  phpunit-7.2.7.phar"
