@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file. This projec
 * PECL mcrypt extension removed from PHP 7.3 and up
 * Repository refactored as a preparation for Alpine 3.8
 * New PECL extension [xlswriter](https://pecl.php.net/package/xlswriter)
+* PHP 7.1.20
 
 ## 2018-06-23
 
