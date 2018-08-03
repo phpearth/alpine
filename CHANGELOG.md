@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 * MongoDB 1.5.2
 * Redis 4.1.1
 * Xdebug 2.6.1
+* PHP 7.3.0 Beta 1
 
 ## 2018-07-21
 
