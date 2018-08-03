@@ -29,7 +29,7 @@ apk search --no-cache php7.2*
 
 ## Documentation
 
-Detailed documentation is available at [PHP.earth](https://php.earth/docs/linux/alpine).
+Detailed documentation is available at [PHP.earth](https://docs.php.earth/linux/alpine).
 
 ## Contributing and license
 
