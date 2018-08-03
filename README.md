@@ -37,7 +37,7 @@ Alpine repository includes also a legacy PHP 7.0 version.
 
 ## Documentation
 
-Detailed documentation is available at [PHP.earth](https://php.earth/docs/linux/alpine).
+Detailed documentation is available at [PHP.earth](https://docs.php.earth/linux/alpine).
 
 ## Contributing and license
 
