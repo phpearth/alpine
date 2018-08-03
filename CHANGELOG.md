@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. This projec
 * Composer 1.7.0
 * MongoDB 1.5.2
 * Redis 4.1.1
+* Xdebug 2.6.1
 
 ## 2018-07-21
 
