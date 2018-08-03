@@ -66,3 +66,18 @@ version (e.g. 1.x.y) is released by the following release process:
 
   With each change rebuild also [PHP.earth Docker images](https://github.com/phpearth/docker-php)
   respectively.
+
+## Git attributes
+
+The `.gitattributes` file defines additional repository properties:
+
+* `CHANGELOG.md merge=CHANGELOG`
+
+  When a custom driver is defined when setting up a repository, the CHANGELOG.md
+  file is not merged from previous branches to newer branches. This allows to have
+  different changelogs for `v3.7` and `master` branch for example.
+
+  ```
+  git config merge.CHANGELOG.name "Keep the CHANGELOG.md file"
+  git config merge.CHANGELOG.driver 'touch %A'
+  ```
