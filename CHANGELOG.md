@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-08-03
 
 * Composer 1.7.0
+* MongoDB 1.5.2
 
 ## 2018-07-21
 
