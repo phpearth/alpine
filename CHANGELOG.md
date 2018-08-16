@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-08-16
+
+* PHP 7.3.0 beta 2
+
 ## 2018-08-14
 
 * Swoole 4.0.4
