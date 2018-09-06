@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. This projec
 
 * PHP 7.3.0 beta 3
 * PHP 7.2.9
+* PHP 7.1.21
 * Swoole 4.1.2
 
 ## 2018-08-16
