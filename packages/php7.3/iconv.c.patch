@@ -1,6 +1,6 @@
 --- a/ext/iconv/iconv.c
 +++ b/ext/iconv/iconv.c
-@@ -286,7 +286,7 @@
+@@ -284,7 +284,7 @@
  	{
  		static char buf[16];
  		snprintf(buf, sizeof(buf), "%d.%d",
