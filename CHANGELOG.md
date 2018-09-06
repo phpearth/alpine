@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-09-06
 
 * PHP 7.3.0 beta 3
+* PHP 7.2.9
 
 ## 2018-08-16
 
