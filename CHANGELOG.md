@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-09-13
 
 * PHP 7.0.32
+* PHP 7.1.22
 
 ## 2018-09-06
 
