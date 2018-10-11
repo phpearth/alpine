@@ -3,9 +3,13 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-10-11
+
+* PHP 7.3.0RC3
+
 ## 2018-10-08
 
-* PHP 7.3.0 RC2
+* PHP 7.3.0RC2
 
 ## 2018-09-13
 
