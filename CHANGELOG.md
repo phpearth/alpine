@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-10-11
 
 * Composer 1.7.2
+* PHP 7.3.0RC3
 
 ## 2018-09-13
 
