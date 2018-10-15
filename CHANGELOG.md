@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-10-15
+
+* Redis 4.2.0RC1
+
 ## 2018-10-11
 
 * PHP 7.3.0RC3
