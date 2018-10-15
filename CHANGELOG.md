@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-10-15
 
 * Redis 4.2.0RC1
+* Swoole 4.2.2
 
 ## 2018-10-11
 
