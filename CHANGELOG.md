@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-11-01
+
+* Composer 1.7.3
+
 ## 2018-10-24
 
 * PHP 7.3.0RC4
