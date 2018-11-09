@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=2.0.11
+pkgver=2.0.13
 pkgrel=0
 _phpver=7.0
 _php=php$_phpver
@@ -56,4 +56,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="ce617f8820ebec23c8544d820a3fad944d7ad77afcf8ad96dc0013d8efc92618c9006ec7af58f1ded5c11bbbbdaa4246fb5d84082d2deddca85c8f41f7f98219  libsodium-2.0.11.tgz"
+sha512sums="c5c0da778c18037aee067a24d23b4d5deae4fe3cccd4835682440cb166275ff229b49393abb276013fae7f10aa2ebf9fb15b67f33097317479ca8e9f57cdac08  libsodium-2.0.13.tgz"
