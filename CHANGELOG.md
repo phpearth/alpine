@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 * AST 1.0.0
 * Meminfo 1.0.4
 * MongoDB 1.5.3
+* Redist 4.2.0 RC3
 
 ## 2018-11-01
 
