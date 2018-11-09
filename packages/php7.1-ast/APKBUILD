@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=0.1.6
+pkgver=1.0.0
 pkgrel=0
 _phpver=7.1
 _php=php$_phpver
@@ -40,4 +40,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="f20629ff721dfa47b9ebdf802c28f46f7cbb54bebee9e1fba4f205d6c42445a92895b01e87071914e82b7bd9f03ce28275d4709d35e7ac9fd2b5bed3965dac0f  php7.1-ast-0.1.6.tar.gz"
+sha512sums="c827b9d9eadbda5f4c8a1b6d9fce26b4d6bf6a12c7e383d44b906ca86c7a123c042c8ce8f2ea20fb072d4bd04e5262222dffa5e8eccd5fc9abbbc993b6d97991  php7.1-ast-1.0.0.tar.gz"
