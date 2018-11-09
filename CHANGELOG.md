@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file. This projec
 * Libsodium 2.0.13
 * PHP 7.1.24
 * PHP 7.2.12
+* PHP 7.3.0RC5
 
 ## 2018-11-01
 
