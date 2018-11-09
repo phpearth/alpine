@@ -1,7 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgname=libxlsxwriter
-pkgver=0.7.7
+pkgver=0.8.3
 pkgrel=0
 pkgdesc="A C library for creating Excel XLSX files"
 url="https://libxlsxwriter.github.io"
@@ -26,4 +26,4 @@ package() {
   cd "$builddir"
   make INSTALL_DIR="$pkgdir/usr" install
 }
-sha512sums="ab20b3178701ea0146ac7e26956e064694e1abf81af64090b9a8c4f32ff97fb7c16eb86e24c955d16a155fb69f23193ff331306ab902dec1a244c91258d9524f  libxlsxwriter-0.7.7.tar.gz"
+sha512sums="7f2ef6f4fd80980aac804ed7223023a765f10c5e0ed80dd03745682872fff68afaf7ce468f52d5a5992ceb4da76f0900f28b32c5416f687f6187da780b66ee10  libxlsxwriter-0.8.3.tar.gz"
