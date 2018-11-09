@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. This projec
 * PHP 7.1.24
 * PHP 7.2.12
 * PHP 7.3.0RC5
+* PHPUnit 7.4.3
 
 ## 2018-11-01
 
