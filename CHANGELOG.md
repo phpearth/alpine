@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-11-09
 
 * libxlsxwriter 0.8.3
+* Swoole 4.2.6
 
 ## 2018-11-01
 

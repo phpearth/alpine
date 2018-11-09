@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=4.2.2
+pkgver=4.2.6
 pkgrel=0
 _phpver=7.2
 _php=php$_phpver
@@ -58,4 +58,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="a989e06862d275e3058ffa227d0e264df6757d6f1da3f75ac911830687c872e6effb22716a7f6c636ca933b39271c45cf4e289011855a77fbf8b989bf729a154  swoole-4.2.2.tgz"
+sha512sums="92e90df15bd683a4c8f2172fc584e2dc7a4562e161abd62f89ee2540bcd30eb180d2ec012bf868c3c915ca0bbd2c0a6a4538439f84a3310ae0d74575e46ee16b  swoole-4.2.6.tgz"
