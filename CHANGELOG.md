@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file. This projec
 * Swoole 4.2.6
 * AST 1.0.0
 * Meminfo 1.0.4
+* MongoDB 1.5.3
 
 ## 2018-11-01
 
