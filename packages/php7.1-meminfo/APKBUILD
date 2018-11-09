@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.0.1
+pkgver=1.0.4
 pkgrel=0
 _phpver=7.1
 _php=php$_phpver
@@ -56,4 +56,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="49f2fc1075bb0a3bb5f38dd5f3693dc9969e63d10cd874d27b51617e6a34568c2d3e64f70e30196b5b79930e020a2cd64177b7bcba195c437b1239d33ff60f44  meminfo-1.0.1.tar.gz"
+sha512sums="a8db0e2f69aeefdbee10c9da26abf823ef1cb4bde60e4d46e5ad2caeb3732f92729426fc7c7fd5c94d8811887dcc37a0b2575a64311d5652e8a7e8e7c5f84302  meminfo-1.0.4.tar.gz"
