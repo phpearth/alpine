@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. This projec
 * MongoDB 1.5.3
 * Redist 4.2.0 RC3
 * Libsodium 2.0.13
+* PHP 7.1.24
 
 ## 2018-11-01
 
