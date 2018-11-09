@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file. This projec
 * AST 1.0.0
 * Meminfo 1.0.4
 * MongoDB 1.5.3
-* Redist 4.2.0 RC3
+* Redis 4.2.0 RC3
 * Libsodium 2.0.13
 * PHP 7.1.24
 * PHP 7.2.12
