@@ -1,8 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=4.2.0
-_pkgsubver=RC3
-pkgrel=1
+pkgrel=2
 _phpver=7.2
 _php=php$_phpver
 _pkgreal=redis
@@ -13,8 +12,8 @@ arch="all"
 license="PHP-3"
 depends="$_php-common $_php-session"
 makedepends="$_php-dev coreutils"
-source="http://pecl.php.net/get/$_pkgreal-$pkgver$_pkgsubver.tgz"
-builddir="$srcdir/$_pkgreal-$pkgver$_pkgsubver"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
 provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
 replaces="php-$_pkgreal php7-$_pkgreal"
 options="!check"
@@ -59,4 +58,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="623c1e4ad0337c121d87af33a3b4e0b91e64e49393abbfbc6201dd4c9b2da5aa9bfefbb7369e8c70c61732369bae42c07390ef059163beabedca43d98f9224d5  redis-4.2.0RC3.tgz"
+sha512sums="b6325e5e1f9209a3431cbc236dab4578f796aa748481f9a3fcda6d297bf544b0f77269bc56c6e9ff32430dbe74bd08f6d22e9b04b0ecfb735aa562f680f56f8b  redis-4.2.0.tgz"

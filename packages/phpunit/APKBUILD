@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=7.4.3
+pkgver=7.4.4
 pkgrel=0
 pkgname=phpunit
 pkgdesc="The PHP Unit Testing framework"

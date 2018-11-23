@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.2.6
+pkgver=1.2.7
 pkgrel=0
 _phpver=7.2
 _php=php$_phpver
@@ -13,7 +13,7 @@ license="MIT"
 depends="$_php-common $_php-json"
 makedepends="$_php-dev composer $_php-dom $_php-tokenizer valgrind"
 source="$_pkgreal-$pkgver.tar.gz::https://github.com/php-ds/extension/archive/v$pkgver.tar.gz"
-builddir="$srcdir/extension-$pkgver"
+builddir="$srcdir/ext-ds-$pkgver"
 provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
 replaces="php-$_pkgreal php7-$_pkgreal"
 
@@ -57,4 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="e2bcc9e2577bdf68cd27855c38cc752492b7ec91bd203fc46718052b73056024b9f17b0e8877a7d93a0a2c7f1f3da3444212ca5f67f6d3d3ccb427804df6eeae  ds-1.2.6.tar.gz"
+sha512sums="d7df538970114ac2caf7797fc581819dd3df1a1579fc2bbad151633098944084c1c3fb5f57936f0995300699af7eb5a2327ea0c1b60b5059c46526d300595a37  ds-1.2.7.tar.gz"

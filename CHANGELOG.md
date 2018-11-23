@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-11-23
+
+* PHP 7.3.0 RC6
+* libxlswriter 0.8.4
+* libsodium 2.0.15
+* Swoole 4.2.8
+* apcu 5.1.14
+* ds 1.2.7
+* Redis 4.2.0 stable
+* yaml 2.0.3
+
 ## 2018-11-09
 
 * libxlsxwriter 0.8.3
