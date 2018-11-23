@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=5.1.12
+pkgver=5.1.14
 pkgrel=0
 _phpver=7.2
 _php=php$_phpver
@@ -57,4 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="f53b7840d5aecfc899e3e878f0bb9a5dc4a83628543963c20c25ce2b2a2adf14dd40d39a6a2014c139962453e0e9e5038fca7b1d0be205c0b9b2aa6e3fefb054  apcu-5.1.12.tgz"
+sha512sums="68a39ae327ed1d75891b454e802e043b9bd5fe40a720537b342896dff87966db238bbc7d155fde87f69ea88607a38d88975eaa3292b1dbe1ed760b3a6a11dc85  apcu-5.1.14.tgz"

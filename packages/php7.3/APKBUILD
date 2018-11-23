@@ -4,8 +4,8 @@ pkgname=php7.3
 _pkgreal=php
 _phpver=7.3
 pkgver=7.3.0
-_pkgrealver=7.3.0RC5
-pkgrel=7
+_pkgrealver=7.3.0RC6
+pkgrel=8
 _apiver=20180731
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
@@ -619,7 +619,7 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="d9628e97494e067b330aa7e75f70c09996c1346aa6c3ab336117853ef15c3f31cf3dda098e00f0aace1fcc51e1c7450fb11f63ae4ece5f8073aa556433ac6c0a  php-7.3.0RC5.tar.xz
+sha512sums="fab7f99203e48e4b4dddd2d4a41756597b1a6501d9a5243b438fde5da7662bc05a50222e59e3678561cacea9b9fd35492f5e944f92b3dba207c2def60f80f5b8  php-7.3.0RC6.tar.xz
 2c3a2d9fa169ce96ba02beebced6fc1e1f63370baff9a8254e07be3c6f204cd3cbeb4978beeefc443d74d6b79a1fcaec11fe0b2b501b54fcaff763734c231b49  config.m4.patch
 d63ba76ded29a1c0212243aff68be29dd84871ab643145fce58a261712215cbeadbbbef0fa3890d533dc21daf240a5e965ae2ec15a6ef9ddc30b21813bb88c41  config9.m4.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list

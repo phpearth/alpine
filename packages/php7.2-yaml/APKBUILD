@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=2.0.2
+pkgver=2.0.3
 pkgrel=0
 _phpver=7.2
 _php=php$_phpver
@@ -57,4 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="b3dd2098826cd7cdcfd1e5d97b9015de66812dc90e506e74a4a50a56afed5f9de0449465bb807a36a13170f479897cc62a9b108653aa7eb81895abd5966bde1a  yaml-2.0.2.tgz"
+sha512sums="8ed5302b18098afe6a789c2b56d2356ae5b7dd58b9ffe8b2cc574868bc99642ac650e21041d68e6c5a43981df1ab2939f64bf28e9c8482e08e145437cc874316  yaml-2.0.3.tgz"
