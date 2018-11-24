@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-11-24
 
 * yaml 2.0.4
+* xlswriter 1.2.3
 
 ## 2018-11-23
 
