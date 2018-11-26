@@ -4,14 +4,14 @@ pkgname=php7.2
 _pkgreal=php
 _phpver=7.2
 pkgver=7.2.12
-pkgrel=0
+pkgrel=1
 _apiver=20170718
 pkgdesc="The PHP $_phpver language runtime engine"
 url="http://www.php.net/"
 arch="all"
 license="PHP-3 BSD LGPL2 MIT Zend"
 depends="$pkgname-common"
-depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear autoconf pcre-dev re2c file gcc g++ make"
+depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre-dev re2c file gcc g++ make"
 # Most dependencies between extensions are auto-discovered (see _extension()).
 _depends_mysqlnd="$pkgname-openssl"
 _depends_pdo_mysql="$pkgname-pdo $pkgname-mysqlnd"
@@ -624,7 +624,7 @@ cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d
 724a77f756b24dc199f5932827f28023c23b2f8487b6f31a53527b628a53c77a5a3d6c40a9b8b0fb35fd585a4b5ba16212c7f4249bc702101f089ae3c0c027e3  iconv.c.patch
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
 8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
-aeea2889de5413739b17fa37de2a0def5fbc6176d51df6e0a41ce14c0b56ba040d7637e98dcbe35d9636ceeb9a22a9145430cacaf78662cce0389a3416d09479  pecl.sh
+c77e9a5acd6dd331a1205f4004e1f267b311490d8c854eb8ab2b80e44174e6613c748a6f05066e5bd5f7366f82ba08e72e1e0f2b2bca6ff5f8809e942cd7cca7  pecl.sh
 2c8bb9c01ed0600fb2ed358737151232572a9dcb648cfe0545a36710a6086147d6710079c9caa2d321ccaa0fe5a6c10e5eecd09a6e9d861e84b43254cff793d5  php-fpm.initd
 618e8dc8b24fb517c04644bf245f7731f75c2a5a37f9c661ca093373ffcb49fdeb246774be7a1d9e8c947bcb1efbd065866f2d33da0d7750bf029db6233a8f53  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf

@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-11-26
+
+* Fix PECL cli script to be able to utilize https
+
 ## 2018-11-24
 
 * yaml 2.0.4
