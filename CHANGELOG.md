@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2018-11-26
 
 * Fix PECL cli script to be able to utilize https
+* Swoole 4.2.9
 
 ## 2018-11-24
 
