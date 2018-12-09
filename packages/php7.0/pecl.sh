@@ -25,18 +25,4 @@ else
   fi
 fi
 
-# Find XML shared extension
-if test "x$($PHP -r 'print_r(extension_loaded("xml"));')" != "x"; then
-  if test "x$($PHP -n -r 'print_r(extension_loaded("xml"));')" = "x"; then
-    XMLFLAG="-d extension_dir="`$PHP -i | grep ^extension_dir | sed 's/.*=> //')`" -d extension=xml.so"
-  fi
-fi
-
-# Find OpenSSL shared extension
-if test "x$($PHP -r 'print_r(extension_loaded("openssl"));')" != "x"; then
-  if test "x$($PHP -n -r 'print_r(extension_loaded("openssl"));')" = "x"; then
-    OPENSSLFLAG="-d extension_dir="`$PHP -i | grep ^extension_dir | sed 's/.*=> //')`" -d extension=openssl.so"
-  fi
-fi
-
-exec $PHP -C -n -q $INCARG -d date.timezone=UTC -d output_buffering=1 -d variables_order=EGPCS -d safe_mode=0 -d register_argc_argv="On" $XMLFLAG $OPENSSLFLAG $INCDIR/peclcmd.php "$@"
+exec $PHP -C -q $INCARG -d date.timezone=UTC -d output_buffering=1 -d variables_order=EGPCS -d safe_mode=0 -d register_argc_argv="On" $INCDIR/peclcmd.php "$@"
