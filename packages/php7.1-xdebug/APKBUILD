@@ -1,6 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=2.6.1
+pkgver=2.7.0
+_extra_version=beta1
 pkgrel=0
 _phpver=7.1
 _php=php$_phpver
@@ -12,8 +13,8 @@ arch="all"
 license="The Xdebug license"
 depends="$_php-common"
 makedepends="$_php-dev coreutils"
-source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
-builddir="$srcdir/$_pkgreal-$pkgver"
+source="http://pecl.php.net/get/$_pkgreal-$pkgver$_extra_version.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver$_extra_version"
 provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
 replaces="php-$_pkgreal php7-$_pkgreal"
 
@@ -57,4 +58,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "zend_extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="31f26e592b3888d7cc74c6a7c51e0cc1151cf8a32100dda78098fb5b3e307cf8d0445b97247986c75b303a787f89b3937bc042dc52f19ca995753a6843bbd80b  xdebug-2.6.1.tgz"
+sha512sums="4872b4cec44eab8cd03309dad854c8a35e159474deb7d3fcbc8f12764fa88e761e3bdc04d7f94425aa14f0a57bdfd52f7a2c88715b2f3e385eacadadcfd79888  xdebug-2.7.0beta1.tgz"

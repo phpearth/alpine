@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
 
+## 2018-12-13
+
+* XDebug 2.7.0beta1
+
 ## 2018-12-09
 
 * PHP 7.0.33
