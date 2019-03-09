@@ -1,9 +1,39 @@
 #!/bin/sh
 
 # Script for building and packaging
-# Usage package [7.0|7.1|7.2|7.3|all|{package-name}]
+# Usage ./package -p [7.0|7.1|7.2|7.3|all|{package-name}]
 
-BUILD_PACKAGES="${1:-all}"
+BUILD_PACKAGES="all"
+
+while test $# -gt 0; do
+  if test "$1" = "-h" || test "$1" = "--help"; then
+    echo "Build script"
+    echo ""
+    echo "Script for building PHP packages for PHP.earth Alpine Linux repository"
+    echo ""
+    echo "SYNOPSIS:"
+    echo "  package [<options>]"
+    echo ""
+    echo "OPTIONS:"
+    echo "  -h, --help         Display this help."
+    echo "  -p, --packages 'package_name...'"
+    exit 0;
+  fi
+
+  if test "$1" = "-p" || test "$1" = "--packages"; then
+    BUILD_PACKAGES="${2}"
+  fi
+
+  shift
+done
+
+# Set current Alpine version
+ALPINE_VERSION=`cat /etc/alpine-release`
+ALPINE_VERSION=v${ALPINE_VERSION:0:3}
+if test -z "$ALPINE_VERSION"; then
+  echo "Alpine version could not be set." >&2
+  exit 1
+fi
 
 packages_others="
 argon2
@@ -93,8 +123,8 @@ all="$packages_others $packages_70 $packages_71 $packages_72 $packages_73"
 
 # To build PHP Pecl extensions and some packages, we'll need some deps from the
 # local PHP.earth Alpine repository
-mkdir -p /public/packages/x86_64
-abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /public/packages/x86_64/APKINDEX.tar.gz
+mkdir -p /public/$ALPINE_VERSION/x86_64
+abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /public/$ALPINE_VERSION/x86_64/APKINDEX.tar.gz
 sudo apk update
 
 if [ "$BUILD_PACKAGES" = "7.0" ]; then
@@ -112,7 +142,7 @@ else
 fi
 
 for package in $packages; do
-  cd /packages/$package
+  cd /$ALPINE_VERSION/$package
 
   # For PHP we also generate tmp directory for some temporary files
   rm -rf tmp
