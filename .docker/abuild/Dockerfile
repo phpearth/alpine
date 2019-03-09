@@ -6,7 +6,7 @@ RUN apk add --no-cache alpine-sdk \
     && adduser -D -g '' -u 1000 -G abuild packager \
     && echo "packager ALL=(ALL) ALL" >> /etc/sudoers \
     && echo "packager ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers \
-    && echo "/public/packages" | tee -a /etc/apk/repositories \
+    && echo "/public/v3.7" | tee -a /etc/apk/repositories \
     # For building some packages (litespeeed and pear) the php command is used
     # and we'll use the latest development php.ini files to show possible warnings
     # and notices
@@ -19,4 +19,4 @@ COPY --chown=packager:abuild . /
 
 USER packager
 
-WORKDIR /packages
+WORKDIR /v3.7
