@@ -9,7 +9,8 @@ while test $# -gt 0; do
   if test "$1" = "-h" || test "$1" = "--help"; then
     echo "Build script"
     echo ""
-    echo "Script for building PHP packages for PHP.earth Alpine Linux repository"
+    echo "Script for building PHP packages for PHP.earth Alpine Linux"
+    echo "repository."
     echo ""
     echo "SYNOPSIS:"
     echo "  package [<options>]"
