@@ -1,7 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=1.2.3
-pkgrel=0
+pkgrel=1
 _phpver=7.0
 _php=php$_phpver
 _pkgreal=xlswriter
@@ -12,7 +12,7 @@ arch="all"
 license="BSD-3-Clause"
 depends="$_php-common libxlsxwriter zlib"
 makedepends="$_php-dev coreutils libxlsxwriter-dev zlib-dev"
-source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
 build() {

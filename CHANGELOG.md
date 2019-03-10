@@ -1,11 +1,25 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. This project
-[keeps a CHANGELOG](http://keepachangelog.com/) based on the time changes.
+[keeps a CHANGELOG](https://keepachangelog.com/) based on the time changes.
 
 ## 2019-03-10
 
 * Build script refactored to be portable across Alpine versions.
+* Composer 1.8.4
+* libxlsxwriter 0.8.5
+* PHP 7.3.3
+* PHP 7.2.16
+* PHP 7.1.27
+* PECL apcu 5.1.17
+* PECL memcached 3.1.3
+* PECL ast 1.0.1
+* PECL DS 1.2.8
+* PECL libsodium 2.0.21
+* PECL Xdebug 2.7.0
+* PECL Swoole 4.3.0
+* PECL Mcrypt 1.0.2 for PHP 7.2
+* Updated http to https in docs and APKBUILDFILES where it works
 
 ## 2018-12-13
 

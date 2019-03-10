@@ -4,10 +4,10 @@ pkgname=php7.0
 _pkgreal=php
 _phpver=7.0
 pkgver=7.0.33
-pkgrel=0
+pkgrel=1
 _apiver=20151012
 pkgdesc="The PHP $_phpver language runtime engine"
-url="http://www.php.net/"
+url="https://php.net/"
 arch="all"
 license="PHP-3 BSD LGPL2 MIT Zend"
 depends="$pkgname-common"
@@ -65,7 +65,7 @@ makedepends="
   zlib-dev
   "
 
-source="http://php.net/distributions/$_pkgreal-$pkgver.tar.xz
+source="https://php.net/distributions/$_pkgreal-$pkgver.tar.xz
   allow-build-recode-and-imap-together.patch
   config.m4.patch
   disabled-tests.list

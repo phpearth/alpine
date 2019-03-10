@@ -1,18 +1,18 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
 pkgver=1.1.0
-pkgrel=0
+pkgrel=1
 _phpver=7.0
 _php=php$_phpver
 _pkgreal=cmark
 pkgname=$_php-$_pkgreal
 pkgdesc="PHP $_phpver CommonMark extension"
-url="http://pecl.php.net/package/$_pkgreal"
+url="https://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
 depends="$_php-common cmark"
 makedepends="$_php-dev coreutils"
-source="http://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
 prepare() {

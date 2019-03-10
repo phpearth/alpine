@@ -25,7 +25,7 @@ this repository.
 
 * This repository uses [Markdown](https://daringfireball.net/projects/markdown/)
   syntax and follows
-  [cirosantilli/markdown-style-guide](http://www.cirosantilli.com/markdown-style-guide/)
+  [cirosantilli/markdown-style-guide](https://www.cirosantilli.com/markdown-style-guide/)
   style guide.
 
 ## GitHub issues labels
@@ -45,7 +45,7 @@ The following labels are used:
 
 *(For repository maintainers)*
 
-This repository follows [semantic versioning](http://semver.org/). When source
+This repository follows [semantic versioning](https://semver.org/). When source
 code changes, new features are implemented, or PHP version gets upgraded, a new
 version (e.g. 1.x.y) is released by the following release process:
 
