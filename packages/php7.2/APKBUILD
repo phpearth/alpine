@@ -11,7 +11,7 @@ url="https://php.net/"
 arch="all"
 license="PHP-3 BSD LGPL2 MIT Zend"
 depends="$pkgname-common"
-depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre-dev re2c file gcc g++ make"
+depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre-dev re2c file gcc g++ make bison"
 # Most dependencies between extensions are auto-discovered (see _extension()).
 _depends_mysqlnd="$pkgname-openssl"
 _depends_pdo_mysql="$pkgname-pdo $pkgname-mysqlnd"
@@ -72,8 +72,6 @@ source="https://php.net/distributions/$_pkgreal-$pkgver.tar.xz
   disabled-tests.list
   iconv.c.patch
   install-pear.patch
-  pear.patch
-  pecl.sh
   php-fpm.initd
   php-fpm.logrotate
   php7-module.conf
@@ -498,10 +496,6 @@ pear() {
 
   cd "$pkgdir"
 
-  # pecl needs xml extension and since we build it as shared, it must be
-  # explicitly declared to be loaded.
-  install -D -m 755 "$srcdir"/pecl.sh "$pkgdir"/usr/bin/pecl
-
   mkdir -p "$subpkgdir"/usr/bin
   local file; for file in pecl pear peardev; do
     mv usr/bin/$file "$subpkgdir"/usr/bin/$file$_phpver
@@ -617,14 +611,12 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="9df1d43e9cd701db10281811b328721b85cb90c6c8dae1842b0fd848cb5388328918b3040bbad7634b340550d82b93746ea479ed45f4d8a80e8a316e6324115d  php-7.2.13.tar.xz
+sha512sums="cd2ea3c68d7ed20317800f4b838b0dd9ae2fde508c79662b296dacdacf6c7e35b6ef30a6564516d7b22e82749a6e9e2ffcfd95b05cd79a9f227fbfaf9e25bc31  php-7.2.16.tar.xz
 1ff2a0a98fadd90b32dd1f8e94b4102ff6b713ee3e6687821b063ff2a7eabea42b963bc88db5668a1dfd7269e62b65f96a1530c3da16992840fc92686a7aa4f4  allow-build-recode-and-imap-together.patch
 0955b336f0847967dbc9760131bacc0238c8b5dc84c09902bae7b2ffa62a78a6d22fd95fb140286e7f8171da128ad9ff3f9e885607242573b75ad8a384353913  config.m4.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list
 724a77f756b24dc199f5932827f28023c23b2f8487b6f31a53527b628a53c77a5a3d6c40a9b8b0fb35fd585a4b5ba16212c7f4249bc702101f089ae3c0c027e3  iconv.c.patch
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
-8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
-3c9be7f522924d97f7ca26d1bf5a8af01f92179b5cea6c7f491fbdd35acb194e597d97a4a47602e66882c9383179954b77b964b37ad21a7c7b8f6083267a45cf  pecl.sh
 2c8bb9c01ed0600fb2ed358737151232572a9dcb648cfe0545a36710a6086147d6710079c9caa2d321ccaa0fe5a6c10e5eecd09a6e9d861e84b43254cff793d5  php-fpm.initd
 618e8dc8b24fb517c04644bf245f7731f75c2a5a37f9c661ca093373ffcb49fdeb246774be7a1d9e8c947bcb1efbd065866f2d33da0d7750bf029db6233a8f53  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf
