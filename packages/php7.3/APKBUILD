@@ -3,8 +3,8 @@
 pkgname=php7.3
 _pkgreal=php
 _phpver=7.3
-pkgver=7.3.0
-pkgrel=10
+pkgver=7.3.3
+pkgrel=0
 _apiver=20180731
 pkgdesc="The PHP $_phpver language runtime engine"
 url="https://php.net/"
