@@ -3,14 +3,14 @@
 pkgname=gnu-libiconv
 pkgver=1.15
 # Package release number is started at 100 so it overwrites the official package
-pkgrel=100
+pkgrel=101
 pkgdesc="GNU charset conversion library for libc which doesn't implement it"
-url="http://www.gnu.org/software/libiconv"
+url="https://www.gnu.org/software/libiconv"
 arch="all"
 license="LGPL"
 depends=""
 makedepends="file"
-source="http://ftp.gnu.org/pub/gnu/libiconv/libiconv-$pkgver.tar.gz"
+source="https://ftp.gnu.org/pub/gnu/libiconv/libiconv-$pkgver.tar.gz"
 subpackages="$pkgname-doc $pkgname-dev"
 builddir="$srcdir"/libiconv-$pkgver
 options="!check"
