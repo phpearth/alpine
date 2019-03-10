@@ -191,6 +191,9 @@ prepare() {
     rm -r $item  # do it in this way to apply globbing...
   done
 
+  # Remove bundled outdated pear installation package. Makefile will reinstall it.
+  rm -f pear/install-pear-nozlib.phar
+
   autoconf
 }
 
