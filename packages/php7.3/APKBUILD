@@ -11,7 +11,7 @@ url="https://php.net/"
 arch="all"
 license="PHP-3 BSD LGPL2 MIT Zend"
 depends="$pkgname-common"
-depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre2-dev re2c file gcc g++ make"
+depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre2-dev re2c file gcc g++ make bison"
 # Most dependencies between extensions are auto-discovered (see _extension()).
 _depends_mysqlnd="$pkgname-openssl"
 _depends_pdo_mysql="$pkgname-pdo $pkgname-mysqlnd"
@@ -73,7 +73,6 @@ source="https://php.net/distributions/$_pkgreal-$pkgver.tar.xz
   disabled-tests.list
   iconv.c.patch
   install-pear.patch
-  pear.patch
   php-fpm.initd
   php-fpm.logrotate
   php7-module.conf
@@ -613,13 +612,12 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="d991101eb833d3a47833aa930341e75c56f26c4cb0249896728ebe209c6c02af1704fccc3052128d8f9fdffc60dcef0ece38a532697131141946898d8b1abcda  php-7.3.0.tar.xz
+sha512sums="bad5fa35f5962fa23dbe01fe85f76ce80e431cf2f9719284c082bb1fa32af26407407a97d3bf999165a6158f83a9669e3dd641f6d70028ec644b74a414fb803d  php-7.3.3.tar.xz
 2c3a2d9fa169ce96ba02beebced6fc1e1f63370baff9a8254e07be3c6f204cd3cbeb4978beeefc443d74d6b79a1fcaec11fe0b2b501b54fcaff763734c231b49  config.m4.patch
 d63ba76ded29a1c0212243aff68be29dd84871ab643145fce58a261712215cbeadbbbef0fa3890d533dc21daf240a5e965ae2ec15a6ef9ddc30b21813bb88c41  config9.m4.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list
 ae26374289e5d3336ed6d0f741762a36b545bba19461d69b849b36476729da6ffaf38a7800654d8e6ab9dd2c1695fcb2d1e54c24dde5afca3296d841d9de8ab8  iconv.c.patch
 1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
-8a793255617a1b48a6e1dbc04ca3740c1214827c5d549c16fd9756ba7302d64b75a415e81516522af1ae98ef0e18d06573deaa017b484b15523a2d1944ef015a  pear.patch
 1d2de57f1ec53f6ac4ca2ba858b00f5c8b1f9c3a8bf2a87566fdbf3d5ff26105d1ab979948d48abb0a9ba1a835af37372341ab6361bf768a3ee77b75a02e0d1b  php-fpm.initd
 19949fe919676cef0f3e5b359add1468d82997de9ac4655a1099f3d83cae1c2d5ef2600d56b229ba372dd37e65adac9857700fe93727aefc020887d9a52b6f15  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf"
