@@ -1,6 +1,6 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
 
-pkgver=1.8.0
+pkgver=1.8.4
 # Package release number is started at 100 so it overwrites the official package
 pkgrel=100
 pkgname=composer
