@@ -4,7 +4,7 @@ pkgname=php7.0
 _pkgreal=php
 _phpver=7.0
 pkgver=7.0.33
-pkgrel=1
+pkgrel=2
 _apiver=20151012
 pkgdesc="The PHP $_phpver language runtime engine"
 url="https://php.net/"
@@ -176,9 +176,7 @@ prepare() {
     TSRM/tsrm_config.w32.h \
     Zend/zend_config.w32.h \
     ext/mysqlnd/config-win.h \
-    ext/standard/winver.h \
-    main/win32_internal_function_disabled.h \
-    main/win95nt.h
+    ext/standard/winver.h
 
   # Fix some bogus permissions.
   find . -name \*.[ch] -exec chmod 644 {} \;
