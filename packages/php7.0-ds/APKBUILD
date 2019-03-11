@@ -13,7 +13,7 @@ license="MIT"
 depends="$_php-common $_php-json"
 makedepends="$_php-dev composer $_php-dom $_php-tokenizer valgrind"
 source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
-builddir="$srcdir/ext-ds-$pkgver"
+builddir="$srcdir/$_pkgreal-$pkgver"
 provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
 replaces="php-$_pkgreal php7-$_pkgreal"
 
@@ -42,8 +42,6 @@ build() {
 check() {
   cd "$builddir"
 
-  composer install
-
   local allow_fail='yes'
 
   php -d extension=modules/ds.so test.php || [ "$allow_fail" = yes ]
@@ -57,4 +55,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="d7df538970114ac2caf7797fc581819dd3df1a1579fc2bbad151633098944084c1c3fb5f57936f0995300699af7eb5a2327ea0c1b60b5059c46526d300595a37  ds-1.2.7.tar.gz"
+sha512sums="baba900e8b43e412590447a4891465e82345239707204eae9158a925766b7a7bab5d2d04eded5373b79154b177bb81e5b8ae2464e90fe549f653fc02358a708b  ds-1.2.8.tgz"

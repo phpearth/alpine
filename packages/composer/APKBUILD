@@ -16,4 +16,4 @@ options="!check"
 package() {
   install -m 0755 -D "$srcdir"/$pkgname-$pkgver.phar "$pkgdir"/usr/bin/$pkgname
 }
-sha512sums="8b0dd173383695c73555259f962c98f088be10ea24a7c534517eb4ee89dfba221962b972ced40e6d88eb0103c53f7d2e7afbc545631c682bc65b0a3c86521b92  composer-1.8.0.phar"
+sha512sums="e5edc837f087ed29fea0e086a77c0685c09c6a6f7c93800b65d6ebc56eb71acfbd9074c818162bbbe2c88eca653b991787c5eba5b58c042b2612d6e1a5ceb733  composer-1.8.4.phar"

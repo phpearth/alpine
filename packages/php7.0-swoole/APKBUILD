@@ -56,4 +56,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="5fbc7c2d5a797074ceaef89d4b5f81440bc7c911e2feda9ded4183069cc9e98bac1ab2acdc6e7788a8c7e379dc0d7b07aaa3c5374c8b20b1ea7c327bc13c87d9  swoole-4.2.9.tgz"
+sha512sums="6814932a8401928b5222653301cf78cf6189655c07058eacfeeadf623c84bc63045cf66b5031a9e3e41005bb25dbdcae3985427a28822d51ea2f4d8727bc465b  swoole-4.3.0.tgz"
