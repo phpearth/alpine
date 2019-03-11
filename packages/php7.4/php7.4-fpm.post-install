@@ -1,0 +1,8 @@
+#!/bin/sh
+
+_suffix="7.4"
+
+mkdir -p /run/php /run/php-fpm$_suffix
+
+ln -sf /usr/sbin/php-fpm$_suffix /usr/sbin/php-fpm
+ln -sf /run/php-fpm$_suffix/php-fpm.sock /run/php/php-fpm.sock
