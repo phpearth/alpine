@@ -11,7 +11,7 @@ url="https://pecl.php.net/package/$_pkgreal"
 arch="all"
 license="PHP-3"
 depends="$_php-common cmark"
-makedepends="$_php-dev coreutils"
+makedepends="$_php-dev coreutils cmark-dev"
 source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
 builddir="$srcdir/$_pkgreal-$pkgver"
 
