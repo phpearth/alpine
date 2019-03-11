@@ -55,4 +55,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="68a39ae327ed1d75891b454e802e043b9bd5fe40a720537b342896dff87966db238bbc7d155fde87f69ea88607a38d88975eaa3292b1dbe1ed760b3a6a11dc85  apcu-5.1.14.tgz"
+sha512sums="7f6a6cd927ed4ff251497c2c79e8d832d1a44ddd59abdb175886d3c12ea27f26142e6b851ac5bb5acb49a0e3a998e9741ba0ff03310f51b9cd188cdf6cf12793  apcu-5.1.17.tgz"

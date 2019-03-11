@@ -56,4 +56,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="7add8bb20947ca11928cf089a8a0b345dddde50542f8489652119e9acd80675ba513c2ab5a840868cc0ab9f8d1c581e2a092d740a10da32668546d5f6f616576  libsodium-2.0.15.tgz"
+sha512sums="b264fd682ae875664216c3f24242f2e9ec07fdb79152299120fa076321971d5cbdeb3691ce0a9408b8495ca667367dbec3da4f07c6e9e830709986eccb45a10f  libsodium-2.0.21.tgz"
