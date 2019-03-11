@@ -44,4 +44,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="c827b9d9eadbda5f4c8a1b6d9fce26b4d6bf6a12c7e383d44b906ca86c7a123c042c8ce8f2ea20fb072d4bd04e5262222dffa5e8eccd5fc9abbbc993b6d97991  php7.1-ast-1.0.0.tar.gz"
+sha512sums="23b90ad066b25ac4ae8953bb44eed5f6978a6616863ce25158d8e84ae403726fe97c6ec0b53fa1da9917626357e6576b89045945661a1d66d1bb4f7cc3064666  ast-1.0.1.tgz"

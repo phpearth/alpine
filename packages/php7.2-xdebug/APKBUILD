@@ -57,4 +57,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "zend_extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="4872b4cec44eab8cd03309dad854c8a35e159474deb7d3fcbc8f12764fa88e761e3bdc04d7f94425aa14f0a57bdfd52f7a2c88715b2f3e385eacadadcfd79888  xdebug-2.7.0beta1.tgz"
+sha512sums="501ae544bb9d13a30e9d327583890ecba36f3b6764683d095d4988cb9b205adc6fb8ca21cca666620907e25ff50c00a8033194327d5cb4f67015e8c6d9104c18  xdebug-2.7.0.tgz"
