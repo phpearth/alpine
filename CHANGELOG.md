@@ -5,7 +5,8 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 2019-03-13
 
-* Swoole 4.3.1
+* PECL Swoole 4.3.1
+* PECL Redis 4.3.0
 
 ## 2019-03-10
 
