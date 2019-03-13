@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](https://keepachangelog.com/) based on the time changes.
 
+## 2019-03-13
+
+* Swoole 4.3.1
+
 ## 2019-03-10
 
 * Build script refactored to be portable across Alpine versions.
