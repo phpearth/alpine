@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](https://keepachangelog.com/) based on the time changes.
 
+## 2019-04-08
+
+* PHP 7.3.4
+* PHP 7.2.17
+* PHP 7.1.28
+
 ## 2019-03-13
 
 * PECL Swoole 4.3.1
