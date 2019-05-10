@@ -1,7 +1,8 @@
+diff --git a/pear/Makefile.frag b/pear/Makefile.frag
+index 9408757a3a..b5ccca5f1c 100644
 --- a/pear/Makefile.frag
 +++ b/pear/Makefile.frag
-@@ -2,8 +2,14 @@
- 
+@@ -1,7 +1,13 @@
  peardir=$(PEAR_INSTALLDIR)
  
 -# Skip all php.ini files altogether
