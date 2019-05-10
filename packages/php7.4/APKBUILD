@@ -7,11 +7,11 @@ pkgver=7.4.0
 pkgrel=0
 _apiver=20180731
 pkgdesc="The PHP $_phpver language runtime engine"
-url="https://php.net/"
+url="https://www.php.net/"
 arch="all"
 license="PHP-3 BSD LGPL2 MIT Zend"
 depends="$pkgname-common"
-depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre2-dev re2c file gcc g++ make bison"
+depends_dev="$pkgname=$pkgver-r$pkgrel $pkgname-pear $pkgname-openssl autoconf pcre2-dev re2c file gcc g++ make bison pkgconf"
 # Most dependencies between extensions are auto-discovered (see _extension()).
 _depends_mysqlnd="$pkgname-openssl"
 _depends_pdo_mysql="$pkgname-pdo $pkgname-mysqlnd"
@@ -66,9 +66,10 @@ makedepends="
   tidyhtml-dev
   unixodbc-dev
   zlib-dev
+  oniguruma-dev
   "
 
-source="https://github.com/php/php-src/archive/PHP-7.4.zip
+source="https://github.com/php/php-src/archive/PHP-7.4.tar.gz
   config.m4.patch
   config9.m4.patch
   disabled-tests.list
@@ -137,7 +138,6 @@ _extensions="
   sysvshm
   tidy
   tokenizer
-  wddx
   xml
   xmlreader
   xmlrpc
@@ -161,11 +161,11 @@ case "$CARCH" in
 esac
 
 prepare() {
+  mv $srcdir/php-src-PHP-7.4 $builddir
   cd "$builddir"
 
   default_prepare
   ./buildconf --force
-  update_config_sub
 
   local vapi=$(sed -n '/#define PHP_API_VERSION/{s/.* //;p}' main/php.h)
   if [ "$vapi" != "$_apiver" ]; then
@@ -174,27 +174,8 @@ prepare() {
     return 1
   fi
 
-  # https://bugs.php.net/63362 - Not needed but installed headers.
-  # Drop some Windows specific headers to avoid installation,
-  # before build to ensure they are really not needed.
-  rm -f TSRM/tsrm_win32.h \
-    TSRM/tsrm_config.w32.h \
-    Zend/zend_config.w32.h \
-    ext/mysqlnd/config-win.h \
-    ext/standard/winver.h
-
-  # Fix some bogus permissions.
-  find . -name \*.[ch] -exec chmod 644 {} \;
-
-  # XXX: Delete failing tests.
-  sed -n '/^[^#]/p' "$srcdir"/disabled-tests.list | while read item; do
-    rm -r $item  # do it in this way to apply globbing...
-  done
-
   # Remove bundled outdated pear installation package. Makefile will reinstall it.
   rm -f pear/install-pear-nozlib.phar
-
-  autoconf
 }
 
 _build() {
@@ -235,29 +216,26 @@ _build() {
     --enable-dom=shared \
     --with-enchant=shared \
     --enable-exif=shared \
-    --with-ffi \
+    --with-ffi=shared \
     --enable-fileinfo=shared \
     --enable-ftp=shared \
-    --with-gd=shared,/usr \
-      --with-freetype-dir=/usr \
+    --enable-gd=shared \
+      --with-freetype \
       --disable-gd-jis-conv \
-      --with-jpeg-dir=/usr \
-      --with-png-dir=/usr \
-      --with-webp-dir=/usr \
-      --with-xpm-dir=/usr \
+      --with-jpeg \
+      --with-webp \
+      --with-xpm \
     --with-gettext=shared \
     --with-gmp=shared \
     --with-iconv=shared \
     --with-imap=shared \
       --with-imap-ssl \
     --enable-intl=shared \
-      --with-icu-dir=/usr \
     --enable-json=shared \
     --with-ldap=shared \
       --with-ldap-sasl \
     --with-libedit \
-    --enable-libxml \
-      --with-libxml-dir=/usr \
+    --with-libxml \
     --enable-mbstring=shared \
     --with-mysqli=shared,mysqlnd \
       --with-mysql-sock=/run/mysqld/mysqld.sock \
@@ -267,7 +245,6 @@ _build() {
       --with-system-ciphers \
       --with-kerberos \
     --enable-pcntl=shared \
-    --with-pcre-regex=/usr \
       $without_pcre_jit \
     --enable-pdo=shared \
       --with-pdo-dblib=shared \
@@ -296,16 +273,13 @@ _build() {
     --with-tidy=shared \
     --enable-tokenizer=shared \
     --with-unixODBC=shared,/usr \
-    --enable-wddx=shared \
     --enable-xml=shared \
     --enable-xmlreader=shared \
     --with-xmlrpc=shared \
     --enable-xmlwriter=shared \
     --with-xsl=shared \
-    --enable-zip=shared \
-      --with-libzip=/usr \
+    --with-zip=shared \
     --with-zlib=shared \
-      --with-zlib-dir=/usr \
     --enable-phpdbg \
     --enable-phpdbg-webhelper \
     --enable-fpm \
@@ -402,7 +376,7 @@ doc() {
   cd "$builddir"
 
   mkdir -p "$subpkgdir"/usr/share/doc/php/$_phpver
-  cp CODING_STANDARDS CREDITS EXTENSIONS INSTALL LICENSE NEWS README* UPGRADING* \
+  cp CODING_STANDARDS EXTENSIONS LICENSE NEWS README* UPGRADING* \
     "$subpkgdir"/usr/share/doc/php/$_phpver/
 }
 
@@ -477,9 +451,9 @@ fpm() {
   done
 
   # Fix FPM versions in configuration files
-  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.3\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.3\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
-  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.3\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
+  sed -i 's/\;pid \= run\/php-fpm\.pid/pid \= \/run\/php-fpm7\.4\/php-fpm\.pid/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/\;error\_log \= log\/php-fpm\.log/error\_log \= \/var\/log\/php\/7\.4\/php-fpm\.log/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.conf
+  sed -i 's/listen \= 127\.0\.0\.1\:9000/listen \= \/run\/php-fpm7\.4\/php-fpm\.sock/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.owner \= www-data/listen\.owner \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
   sed -i 's/\;listen\.group \= www-data/listen\.group \= www-data/g' "$subpkgdir"/etc/php/$_phpver/php-fpm.d/www.conf
 
@@ -616,12 +590,12 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="bad5fa35f5962fa23dbe01fe85f76ce80e431cf2f9719284c082bb1fa32af26407407a97d3bf999165a6158f83a9669e3dd641f6d70028ec644b74a414fb803d  php-7.3.3.tar.xz
+sha512sums="dd27bc343fcbb9dc600b41c3f537dbc2378472f8fd050610203f1be097c7bcbf73ada0041ddbeb9127870dcd3067b20e5ffba6f07484df143552c2d3b83cb53b  PHP-7.4.tar.gz
 2c3a2d9fa169ce96ba02beebced6fc1e1f63370baff9a8254e07be3c6f204cd3cbeb4978beeefc443d74d6b79a1fcaec11fe0b2b501b54fcaff763734c231b49  config.m4.patch
 d63ba76ded29a1c0212243aff68be29dd84871ab643145fce58a261712215cbeadbbbef0fa3890d533dc21daf240a5e965ae2ec15a6ef9ddc30b21813bb88c41  config9.m4.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list
 ae26374289e5d3336ed6d0f741762a36b545bba19461d69b849b36476729da6ffaf38a7800654d8e6ab9dd2c1695fcb2d1e54c24dde5afca3296d841d9de8ab8  iconv.c.patch
-1eb894661d4a9cb7cb07d2c507f8b6a52cd62dac18f73c31f2c2bf6f7e7b0c185b74a542481a29cef4236353cf278bd86aa183663d5999f0b8df8c7623366c2b  install-pear.patch
-1d2de57f1ec53f6ac4ca2ba858b00f5c8b1f9c3a8bf2a87566fdbf3d5ff26105d1ab979948d48abb0a9ba1a835af37372341ab6361bf768a3ee77b75a02e0d1b  php-fpm.initd
-19949fe919676cef0f3e5b359add1468d82997de9ac4655a1099f3d83cae1c2d5ef2600d56b229ba372dd37e65adac9857700fe93727aefc020887d9a52b6f15  php-fpm.logrotate
+3be2accff7f5ab1da5273f30c9fef6e0fd9896ea21c477533020a74a23862a78c7e7c5dad5df0ff1b65b1635a5f5cb6522377228928514640c5d8866403b2af8  install-pear.patch
+b53cef4ee13ac3c42efbee9ff786fbaf0724203b2d819435b9ac2a40cbf35d748517181189073e2d53577d7d656d58fd37a4f6931ba310a8038bdd5a68a041f5  php-fpm.initd
+53e94cd2b3721d9c187bd96f3b205e5d8156c9bbc28228a455301b8f23709d710e31638f704a3eaa1b4211633b75f37731422e9169560cc0f8f75c2cb0c1fc68  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf"
