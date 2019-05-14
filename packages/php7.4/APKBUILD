@@ -4,7 +4,7 @@ pkgname=php7.4
 _pkgreal=php
 _phpver=7.4
 pkgver=7.4.0
-pkgrel=0
+pkgrel=1
 _apiver=20180731
 pkgdesc="The PHP $_phpver language runtime engine"
 url="https://www.php.net/"
@@ -251,7 +251,7 @@ _build() {
       --with-pdo-mysql=shared,mysqlnd \
       --with-pdo-odbc=shared,unixODBC,/usr \
       --with-pdo-pgsql=shared \
-      --with-pdo-sqlite=shared,/usr \
+      --with-pdo-sqlite=shared \
     --with-pgsql=shared \
     --enable-phar=shared \
     --enable-posix=shared \
@@ -266,7 +266,7 @@ _build() {
     --enable-sockets=shared \
     --with-sodium=shared \
     --with-password-argon2 \
-    --with-sqlite3=shared,/usr \
+    --with-sqlite3=shared \
     --enable-sysvmsg=shared \
     --enable-sysvsem=shared \
     --enable-sysvshm=shared \
@@ -590,9 +590,9 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="dd27bc343fcbb9dc600b41c3f537dbc2378472f8fd050610203f1be097c7bcbf73ada0041ddbeb9127870dcd3067b20e5ffba6f07484df143552c2d3b83cb53b  PHP-7.4.tar.gz
+sha512sums="737633b33419e78ff256d7ac49683bad991872393b8e83dd4906098092a486a43fc60e69a5f76ed336e40ab2d850f55b782c9d636708571306def42fb2bb1547  PHP-7.4.tar.gz
 2c3a2d9fa169ce96ba02beebced6fc1e1f63370baff9a8254e07be3c6f204cd3cbeb4978beeefc443d74d6b79a1fcaec11fe0b2b501b54fcaff763734c231b49  config.m4.patch
-d63ba76ded29a1c0212243aff68be29dd84871ab643145fce58a261712215cbeadbbbef0fa3890d533dc21daf240a5e965ae2ec15a6ef9ddc30b21813bb88c41  config9.m4.patch
+568184ffb51fa2af3702cb8bdd38d33c8991431d20b6e99e02ba3f407d4ec8aab91650a6767f0c1ca8b7d2f2f1f65c1e63967ba2c76a2c8f2324336f5809271c  config9.m4.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list
 ae26374289e5d3336ed6d0f741762a36b545bba19461d69b849b36476729da6ffaf38a7800654d8e6ab9dd2c1695fcb2d1e54c24dde5afca3296d841d9de8ab8  iconv.c.patch
 3be2accff7f5ab1da5273f30c9fef6e0fd9896ea21c477533020a74a23862a78c7e7c5dad5df0ff1b65b1635a5f5cb6522377228928514640c5d8866403b2af8  install-pear.patch
