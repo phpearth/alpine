@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](https://keepachangelog.com/) based on the time changes.
 
+## 2019-05-14
+
+* PHP 7.4.0-dev bumped
+
 ## 2019-05-10
 
 * PHP 7.4.0-dev images

@@ -1,10 +1,8 @@
-Extensions recode and imap can't be loaded together, but they can be build
-together, and that's what we want.
-
+diff --git a/ext/recode/config9.m4 b/ext/recode/config9.m4
+index 28d852d8b0..40c6c59d72 100644
 --- a/ext/recode/config9.m4
 +++ b/ext/recode/config9.m4
-@@ -2,14 +2,6 @@
- 
+@@ -1,13 +1,5 @@
  dnl Check for extensions with which Recode can not work
  if test "$PHP_RECODE" != "no"; then
 -  test "$PHP_IMAP"  != "no" && recode_conflict="$recode_conflict imap"
