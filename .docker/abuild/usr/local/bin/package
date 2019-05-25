@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Do not continue script on errors
+set -e
+
 # Script for building and packaging
 # Usage ./package -p [7.0|7.1|7.2|7.3|all|{package-name}]
 
