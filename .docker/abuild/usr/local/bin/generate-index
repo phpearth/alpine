@@ -13,7 +13,7 @@ if test -z "$ALPINE_VERSION"; then
 fi
 
 cd /public/$ALPINE_VERSION/x86_64
-apk index -o APKINDEX.unsigned.tar.gz *.apk --rewrite-arch x86_64
+apk index -o APKINDEX.unsigned.tar.gz *.apk
 openssl dgst -sha1 -sign /home/packager/.abuild/phpearth.rsa.priv -out .SIGN.RSA.phpearth.rsa.pub APKINDEX.unsigned.tar.gz
 tar -c .SIGN.RSA.phpearth.rsa.pub | abuild-tar --cut | gzip -9 > signature.tar.gz
 cat signature.tar.gz APKINDEX.unsigned.tar.gz > APKINDEX.tar.gz
