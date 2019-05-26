@@ -86,7 +86,7 @@ all="$packages_others $packages_71 $packages_72 $packages_73"
 
 # To build PHP Pecl extensions and some packages, we'll need some deps from the
 # local PHP.earth Alpine repository
-mkdir -p /public/$ALPINE_VERSION/x86_64
+sudo install -d -o $(id -u) -g $(id -g) /public/$ALPINE_VERSION/x86_64
 abuild-sign -k /home/packager/.abuild/phpearth.rsa.priv /public/$ALPINE_VERSION/x86_64/APKINDEX.tar.gz
 sudo apk update
 
