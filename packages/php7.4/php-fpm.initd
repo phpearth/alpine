@@ -30,7 +30,7 @@ depend() {
 
 init_vars() {
   # Defaults for single master process with multiple pools
-  if [ "$RC_SVCNAME" = "php-fpm4" ]; then
+  if [ "$RC_SVCNAME" = "php-fpm7.4" ]; then
     : ${fpm_config:="/etc/php/7.4/php-fpm.conf"}
     : ${user:="root"}
   # Defaults for master process per pool
