@@ -3,6 +3,9 @@
 # Script for building and packaging
 # Usage ./package -p [7.0|7.1|7.2|7.3|all|{package-name}]
 
+# Do not continue script on errors
+set -e
+
 BUILD_PACKAGES="all"
 
 while test $# -gt 0; do

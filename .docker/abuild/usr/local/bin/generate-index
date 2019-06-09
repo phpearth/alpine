@@ -3,16 +3,19 @@
 # Generate index file APKINDEX.tar.gz
 # Usage generate-index
 
+# Do not continue script on errors
+set -e
+
 # Get current Alpine version
-ALPINE_VERSION=`cat /etc/alpine-release`
-ALPINE_VERSION=v${ALPINE_VERSION:0:3}
+ALPINE_VERSION=$(cat /etc/alpine-release)
+ALPINE_VERSION=${ALPINE_VERSION:0:3}
 
 if test -z "$ALPINE_VERSION"; then
   echo "Alpine version could not be set." >&2
   exit 1
 fi
 
-cd /public/$ALPINE_VERSION/x86_64
+cd /public/v$ALPINE_VERSION/x86_64
 apk index -o APKINDEX.unsigned.tar.gz *.apk --rewrite-arch x86_64
 openssl dgst -sha1 -sign /home/packager/.abuild/phpearth.rsa.priv -out .SIGN.RSA.phpearth.rsa.pub APKINDEX.unsigned.tar.gz
 tar -c .SIGN.RSA.phpearth.rsa.pub | abuild-tar --cut | gzip -9 > signature.tar.gz
