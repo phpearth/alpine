@@ -10,10 +10,11 @@ RUN apk add --no-cache alpine-sdk \
     # For building some packages (litespeeed and pear) the php command is used
     # and we'll use the latest development php.ini files to show possible warnings
     # and notices
-    && mkdir -p /etc/php/7.1 /etc/php/7.2 /etc/php/7.3 \
+    && mkdir -p /etc/php/7.1 /etc/php/7.2 /etc/php/7.3 /etc/php/7.4 \
     && curl https://raw.githubusercontent.com/php/php-src/PHP-7.1/php.ini-development --output /etc/php/7.1/php.ini \
     && curl https://raw.githubusercontent.com/php/php-src/PHP-7.2/php.ini-development --output /etc/php/7.2/php.ini \
-    && curl https://raw.githubusercontent.com/php/php-src/master/php.ini-development --output /etc/php/7.3/php.ini
+    && curl https://raw.githubusercontent.com/php/php-src/PHP-7.3/php.ini-development --output /etc/php/7.3/php.ini \
+    && curl https://raw.githubusercontent.com/php/php-src/PHP-7.4/php.ini-development --output /etc/php/7.4/php.ini
 
 COPY --chown=packager:abuild . /
 
