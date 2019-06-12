@@ -55,4 +55,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="baba900e8b43e412590447a4891465e82345239707204eae9158a925766b7a7bab5d2d04eded5373b79154b177bb81e5b8ae2464e90fe549f653fc02358a708b  ds-1.2.8.tgz"
+sha512sums="73107fedd4515e5f7fbb761d19a9f9b472ad42771c1cc817ca4fc24fff1f070ce39cd59745d3a05a170d7327eea030cc85e7fb7a7caa3f3ff9b1eba19a159b86  ds-1.2.9.tgz"

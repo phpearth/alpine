@@ -56,4 +56,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="a8db0e2f69aeefdbee10c9da26abf823ef1cb4bde60e4d46e5ad2caeb3732f92729426fc7c7fd5c94d8811887dcc37a0b2575a64311d5652e8a7e8e7c5f84302  meminfo-1.0.4.tar.gz"
+sha512sums="fad7cc7e8a638316b05292e24c1739f46f2d8212b1ab262e062e2c234495ffe6fe460cacd452c6f524d05b6093755c9c189d568625aaebef8ab6f0d0cc241dc8  meminfo-1.0.5.tar.gz"

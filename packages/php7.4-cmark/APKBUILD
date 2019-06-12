@@ -55,4 +55,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal.so" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="8be54b0fd03f73287e240be569ee9d8d1ffd7c88a0f6e0315b29af16771b6452359a37e8ec2f79b4a10ace59d09d8a5f74be4a99bde4e9c1397a6bddcdbe83d3  cmark-1.1.0.tgz"
+sha512sums="7a59a6a66d98de2fecf3c2207008deb6929610cffa8e7f982dcaadfe7317366ad3c2abf8332d70e7447a0f5b81aac8f2ad073c6972b132f4e1888bc020146492  cmark-1.2.0.tgz"
