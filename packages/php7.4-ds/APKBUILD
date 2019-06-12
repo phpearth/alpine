@@ -1,0 +1,58 @@
+# Maintainer: Peter Kokot <peterkokot@gmail.com>
+
+pkgver=1.2.9
+pkgrel=0
+_phpver=7.4
+_php=php$_phpver
+_pkgreal=ds
+pkgname=$_php-$_pkgreal
+pkgdesc="PHP $_phpver data structures extension"
+url="https://pecl.php.net/package/$_pkgreal"
+arch="all"
+license="MIT"
+depends="$_php-common $_php-json"
+makedepends="$_php-dev composer $_php-dom $_php-tokenizer valgrind"
+source="https://pecl.php.net/get/$_pkgreal-$pkgver.tgz"
+builddir="$srcdir/$_pkgreal-$pkgver"
+provides="php-$_pkgreal=$pkgver-r$pkgrel php7-$_pkgreal=$pkgver-r$pkgrel"
+replaces="php-$_pkgreal php7-$_pkgreal"
+
+prepare() {
+  default_prepare
+}
+
+build() {
+  local jobs=$(($(nproc)+1))
+
+  cd "$builddir"
+
+  phpize
+
+  EXTENSION_DIR=/usr/lib/php/$_phpver/modules \
+  CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
+  CPPFLAGS="$CFLAGS" \
+  LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ./configure \
+    --prefix=/usr \
+    --with-php-config=/usr/bin/php-config
+
+  make -j$jobs
+}
+
+check() {
+  cd "$builddir"
+
+  local allow_fail='yes'
+
+  php -d extension=modules/ds.so test.php || [ "$allow_fail" = yes ]
+  USE_ZEND_ALLOC=0 ZEND_DONT_UNLOAD_MODULES=1 valgrind php -d extension=modules/ds.so test.php || [ "$allow_fail" = yes ]
+}
+
+package() {
+  mkdir -p "$pkgdir"
+  install -d $pkgdir/
+  make -C "$builddir" INSTALL_ROOT="$pkgdir" install
+  install -d "$pkgdir"/etc/php/$_phpver/conf.d
+  echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
+}
+sha512sums="baba900e8b43e412590447a4891465e82345239707204eae9158a925766b7a7bab5d2d04eded5373b79154b177bb81e5b8ae2464e90fe549f653fc02358a708b  ds-1.2.8.tgz"
