@@ -49,29 +49,37 @@ litespeed
 phpunit
 "
 
-packages=`find /$ALPINE_VERSION/php7.0-* -type d -maxdepth 0`
-packages_70=""
-for package in $packages; do
-packages_70="$packages_70 $(basename $package)"
-done
+if test -d "/$ALPINE_VERSION/php7.0"; then
+  packages=`find /$ALPINE_VERSION/php7.0-* -type d -maxdepth 0`
+  packages_70=""
+  for package in $packages; do
+    packages_70="$packages_70 $(basename $package)"
+  done
+fi
 
-packages=`find /$ALPINE_VERSION/php7.1-* -type d -maxdepth 0`
-packages_71=""
-for package in $packages; do
-packages_71="$packages_71 $(basename $package)"
-done
+if test -d "/$ALPINE_VERSION/php7.1"; then
+  packages=`find /$ALPINE_VERSION/php7.1-* -type d -maxdepth 0`
+  packages_71=""
+  for package in $packages; do
+    packages_71="$packages_71 $(basename $package)"
+  done
+fi
 
-packages=`find /$ALPINE_VERSION/php7.2-* -type d -maxdepth 0`
-packages_72=""
-for package in $packages; do
-packages_72="$packages_72 $(basename $package)"
-done
+if test -d "/$ALPINE_VERSION/php7.2"; then
+  packages=`find /$ALPINE_VERSION/php7.2-* -type d -maxdepth 0`
+  packages_72=""
+  for package in $packages; do
+    packages_72="$packages_72 $(basename $package)"
+  done
+fi
 
-packages=`find /$ALPINE_VERSION/php7.3-* -type d -maxdepth 0`
-packages_73=""
-for package in $packages; do
-packages_73="$packages_73 $(basename $package)"
-done
+if test -d "/$ALPINE_VERSION/php7.3"; then
+  packages=`find /$ALPINE_VERSION/php7.3-* -type d -maxdepth 0`
+  packages_73=""
+  for package in $packages; do
+    packages_73="$packages_73 $(basename $package)"
+  done
+fi
 
 all="$packages_others $packages_70 $packages_71 $packages_72 $packages_73"
 
