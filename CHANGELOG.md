@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 ## 2019-06-13
 
 * PHP 7.4.0alpha1
+* PHP 7.4.0 PECL extensions
 
 ## 2019-05-14
 
