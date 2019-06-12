@@ -41,4 +41,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="ecdba9dc000138e185f1704bbdb271ac5a9a5145268ca4cc5dabef7e2993cae27a9a6633b3db28b9f77d7fc6b5186fd805e6f0b6d7c140a131c8c4019c0530be  xlswriter-1.2.3.tgz"
+sha512sums="a060e7bb2142761c9c5c1536f1513159510bdba38248980e55fe433001230d114af426342a235c7a3c57c81e9d47c4c2df1c97982ff45357e9a0f36549cdf806  xlswriter-1.2.4.tgz"
