@@ -4,8 +4,8 @@ pkgname=php7.4
 _pkgreal=php
 _phpver=7.4
 pkgver=7.4.0
-pkgrel=1
-_apiver=20180731
+pkgrel=2
+_apiver=20190529
 pkgdesc="The PHP $_phpver language runtime engine"
 url="https://www.php.net/"
 arch="all"
@@ -67,9 +67,11 @@ makedepends="
   unixodbc-dev
   zlib-dev
   oniguruma-dev
+  libgpg-error-dev
+  libgcrypt-dev
   "
 
-source="https://github.com/php/php-src/archive/PHP-7.4.tar.gz
+source="https://downloads.php.net/~derick/php-7.4.0alpha1.tar.xz
   config.m4.patch
   config9.m4.patch
   disabled-tests.list
@@ -80,7 +82,7 @@ source="https://github.com/php/php-src/archive/PHP-7.4.tar.gz
   php7-module.conf
   "
 
-builddir="$srcdir/$_pkgreal-$pkgver"
+builddir="$srcdir/$_pkgreal-${pkgver}alpha1"
 _libdir="/usr/lib/php/$_phpver"
 _extension_dir="$_libdir/modules"
 _extension_confd="/etc/php/$_phpver/conf.d"
@@ -161,7 +163,6 @@ case "$CARCH" in
 esac
 
 prepare() {
-  mv $srcdir/php-src-PHP-7.4 $builddir
   cd "$builddir"
 
   default_prepare
@@ -188,6 +189,8 @@ _build() {
   CFLAGS="-fstack-protector-strong -fpic -fpie -O2" \
   CPPFLAGS="$CFLAGS" \
   LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie" \
+  ARGON2_LIBS="-largon2 -lrt -ldl" \
+  ARGON2_CFLAGS="-I/usr/include" \
   ./configure \
     --build=$CBUILD \
     --host=$CHOST \
@@ -302,7 +305,7 @@ build() {
   # https://bugs.php.net/bug.php?id=75250
   install -Dm644 /etc/apache2/httpd.conf $_tmpdir/etc/apache2/httpd.conf
   _build --with-apxs2 \
-         --with-litespeed \
+         --enable-litespeed \
 
   # embed
   _build --enable-embed
@@ -376,7 +379,7 @@ doc() {
   cd "$builddir"
 
   mkdir -p "$subpkgdir"/usr/share/doc/php/$_phpver
-  cp CODING_STANDARDS EXTENSIONS LICENSE NEWS README* UPGRADING* \
+  cp CODING_STANDARDS.md EXTENSIONS LICENSE NEWS README* UPGRADING* \
     "$subpkgdir"/usr/share/doc/php/$_phpver/
 }
 
@@ -590,12 +593,12 @@ _mv() {
   mkdir -p "$dest"
   mv $@
 }
-sha512sums="737633b33419e78ff256d7ac49683bad991872393b8e83dd4906098092a486a43fc60e69a5f76ed336e40ab2d850f55b782c9d636708571306def42fb2bb1547  PHP-7.4.tar.gz
+sha512sums="05977c383045367f3f07f39c6de3a76bf2dd63105c2c0efb91032bec8290a001ab43a92e9dbec58959b921c7af1a4fb0674ce9083b133ebaee0719bb394a7ba3  php-7.4.0alpha1.tar.xz
 2c3a2d9fa169ce96ba02beebced6fc1e1f63370baff9a8254e07be3c6f204cd3cbeb4978beeefc443d74d6b79a1fcaec11fe0b2b501b54fcaff763734c231b49  config.m4.patch
 568184ffb51fa2af3702cb8bdd38d33c8991431d20b6e99e02ba3f407d4ec8aab91650a6767f0c1ca8b7d2f2f1f65c1e63967ba2c76a2c8f2324336f5809271c  config9.m4.patch
 cd76bd6a6a222e17ba50a11d292925966e30532a464ad2807d8ae5a8c510c63eeb494291f0b0ce1d287f13659d290550d001e77b2fc50c70c3ec175b204a37a7  disabled-tests.list
 ae26374289e5d3336ed6d0f741762a36b545bba19461d69b849b36476729da6ffaf38a7800654d8e6ab9dd2c1695fcb2d1e54c24dde5afca3296d841d9de8ab8  iconv.c.patch
 3be2accff7f5ab1da5273f30c9fef6e0fd9896ea21c477533020a74a23862a78c7e7c5dad5df0ff1b65b1635a5f5cb6522377228928514640c5d8866403b2af8  install-pear.patch
-b53cef4ee13ac3c42efbee9ff786fbaf0724203b2d819435b9ac2a40cbf35d748517181189073e2d53577d7d656d58fd37a4f6931ba310a8038bdd5a68a041f5  php-fpm.initd
+b4db649d7161690d138dd9557061c123db8cb188368c453725f44469cab48b7311b640603435406f504ad4d2283ee0685cbc4ec143bfd1cb31c981c0feb06a7e  php-fpm.initd
 53e94cd2b3721d9c187bd96f3b205e5d8156c9bbc28228a455301b8f23709d710e31638f704a3eaa1b4211633b75f37731422e9169560cc0f8f75c2cb0c1fc68  php-fpm.logrotate
 274bd7b0b2b7002fa84c779640af37b59258bb37b05cb7dd5c89452977d71807f628d91b523b5039608376d1f760f3425d165242ca75ee5129b2730e71c4e198  php7-module.conf"

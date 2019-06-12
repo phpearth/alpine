@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. This project
 [keeps a CHANGELOG](https://keepachangelog.com/) based on the time changes.
 
+## 2019-06-13
+
+* PHP 7.4.0alpha1
+
 ## 2019-05-14
 
 * PHP 7.4.0-dev bumped
