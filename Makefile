@@ -28,7 +28,7 @@ generate-index: ## Generate index file APKINDEX.tar.gz usage: make generate-inde
   $(MAKE) run a="generate-index"
 
 private-key: ## Generate new private key
-  $(MAKE) run a="openssl genrsa -out phpearth.rsa.priv 4096 --build --force-recreate"
+  $(MAKE) run a="openssl genrsa -out phpearth.rsa.priv 4096"
   mv packages/phpearth.rsa.priv .docker/abuild/home/packager/.abuild/
 
 public-key: ## Generate new public key
