@@ -1,3 +1,7 @@
+# https://www.gnu.org/software/make/
+#
+# Minimum recommended Make version: GNU Make 4
+
 .RECIPEPREFIX +=
 .DEFAULT_GOAL := help
 .PHONY: *
@@ -6,8 +10,8 @@
 version = v3.7
 
 help:
-  @echo "\033[33mUsage:\033[0m\n  make [target] [arg=\"val\"...]\n\n\033[33mTargets:\033[0m"
-  @grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[32m%-15s\033[0m %s\n", $$1, $$2}'
+  @printf "\033[33mUsage:\033[0m\n  make [target] [arg=\"val\"...]\n\n\033[33mTargets:\033[0m\n"
+  @grep -E '^[-a-zA-Z0-9_\.\/]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[32m%-15s\033[0m %s\n", $$1, $$2}'
 
 build: ## Build necessary Docker image for building packages
   @docker image build -t phpearth-abuild:$(version) -f .docker/abuild/Dockerfile .docker/abuild
