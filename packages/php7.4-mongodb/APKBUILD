@@ -1,6 +1,7 @@
 # Maintainer: Peter Kokot <peterkokot@gmail.com>
+# Contributor: Gregori Piñeres <gregori.pineres02@gmail.com>
 
-pkgver=1.5.5
+pkgver=1.6.1
 pkgrel=0
 _phpver=7.4
 _php=php$_phpver
@@ -58,4 +59,4 @@ package() {
   install -d "$pkgdir"/etc/php/$_phpver/conf.d
   echo "extension=$_pkgreal" > "$pkgdir"/etc/php/$_phpver/conf.d/$_pkgreal.ini
 }
-sha512sums="1eefc8f8e359a979082dc7808e89ff5418cd2dc73d4250638e33dc32cce40ef42502e9dbbb07303381e0062b84818568034f4e4cda8c8bf905513d00bf008392  mongodb-1.5.5.tgz"
+sha512sums="cc5e3c79f7af1cd7e3f661dd1b7f69be174b7f8acca13cfa2115d8d200680e8e665649e576742a01311b9b1d4a548442e55367bcb1435a080dbf34138205c945  mongodb-1.6.1.tgz"
