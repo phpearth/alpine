@@ -3,7 +3,7 @@
 pkgname=php7.4
 _pkgreal=php
 _phpver=7.4
-pkgver=7.4.0
+pkgver=7.4.2
 pkgrel=2
 _apiver=20190529
 pkgdesc="The PHP $_phpver language runtime engine"
@@ -71,7 +71,7 @@ makedepends="
   libgcrypt-dev
   "
 
-source="https://downloads.php.net/~derick/php-7.4.0alpha1.tar.xz
+source="https://www.php.net/distributions/php-7.4.2.tar.xz
   config.m4.patch
   config9.m4.patch
   disabled-tests.list
@@ -82,7 +82,7 @@ source="https://downloads.php.net/~derick/php-7.4.0alpha1.tar.xz
   php7-module.conf
   "
 
-builddir="$srcdir/$_pkgreal-${pkgver}alpha1"
+builddir="$srcdir/$_pkgreal-${pkgver}"
 _libdir="/usr/lib/php/$_phpver"
 _extension_dir="$_libdir/modules"
 _extension_confd="/etc/php/$_phpver/conf.d"
