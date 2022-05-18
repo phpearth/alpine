@@ -1,5 +1,7 @@
 # PHP.earth Alpine Linux repository
 
+**Obsolete and archived on 2022-05-18 in favor of the official Alpine repositories with more updated PHP versions and packages** 
+
 This repository includes the latest PHP versions and packages for the elegant PHP
 development experience on [Alpine Linux](https://alpinelinux.org/).
 
